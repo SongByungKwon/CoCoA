@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/favicon.png">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="/css/cocoaMenu.css">
+  <link rel="stylesheet" href="/css/teacherStyle.css">
+</head>
+<body>
+
+<div id="wrap">
+  <th:block th:if="${session.user ==null}">
+    <div th:replace="/include/cocoaHeader.html"></div>
+  </th:block>
+  <th:block th:if="${session.user != null}">
+    <div th:replace="/include/loginCocoaHeader.html"></div>
+  </th:block>
+</div>
+
+<div id="teacher">
+  <div class="teacher1 clearfix">
+    <div class="teacherImg"><img src="/img/cocoa/teacher1.png" alt="강사이미지1"></div>
+    <div class="teacherText">
+      <h3>코코아 최고의 아웃풋 메이커 🏅<br><br>Leo Kang<br><br></h3>
+      <ul>
+        <li>現 코코아 메인 강사</li>
+        <li>現 하이미디어 코딩 아카데미 강사</li>
+        <li>現 네이버 부트캠프 강사</li>
+        <li>前 토스 페이먼츠 개발 팀장</li>
+      </ul>
+    </div>
+  </div>
+  <div class="teacher2">
+    <div class="teacherImg"><img src="/img/cocoa/teacher2.png" alt="강사이미지2"></div>
+    <div class="teacherText">
+      <h3>비타민 가득한 C언어 강사 🍊<br><br>Byung Ku<br><br></h3>
+      <ul>
+        <li>現 코코아 C언어 상급자 코스 메인 강사</li>
+        <li>現 당근마켓 최연소 개발자</li>
+        <li>現 SI 프리랜서</li>
+        <li>前 아랍권 소속 회사 개발 참여</li>
+      </ul>
+    </div>
+  </div>
+  <div class="teacher3">
+    <div class="teacherImg"><img src="/img/cocoa/teacher3.png" alt="강사이미지3"></div>
+    <div class="teacherText">
+      <h3>Google 바드 개발팀 현역강사 👓<br><br>엠제이<br><br></h3>
+      <ul>
+        <li>現 코코아 중급코스 "스프링으로 점프" 강사</li>
+        <li>現 구글 '바드' 개발자</li>
+        <li>前 공공기관 홈페이지 디자이너</li>
+        <li>前 유럽권 소속 회사 개발 참여</li>
+      </ul>
+    </div>
+  </div>
+  <div class="teacher4">
+    <div class="teacherImg"><img src="/img/cocoa/teacher4.png" alt="강사이미지4"></div>
+    <div class="teacherText">
+      <h3>함께 발 맞추는 따뜻한 강사 🌸<br><br>유니<br><br></h3>
+      <ul>
+        <li>現 코코아 유일한 풀스택 강사</li>
+        <li>現 네이버 SNS 블로그 파트 현직자</li>
+        <li>前 ‘에픽게임즈 폴가이즈’ 게임 개발 참여</li>
+        <li>前 캐나다 자회사 파견 및 개발 총괄</li>
+      </ul>
+    </div>
+  </div>
+  <div class="teacher5">
+    <div class="teacherImg"><img src="/img/cocoa/teacher5.png" alt="강사이미지5"></div>
+    <div class="teacherText">
+      <h3>배달의민족 우아한 부트캠프 소문의 일타강사 💪<br><br>Yeonny
+        <br><br></h3>
+      <ul>
+        <li>現 코코아 SQL 강사</li>
+        <li>現 네이버 클라우드 데이터베이스 담당자</li>
+        <li>前 배달의민족 우아한 부트캠프 메인강사</li>
+        <li>前 미국 자회사 파견 및 개발 총괄</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div th:replace="/include/footer.html"></div>
+</body>
+</html>

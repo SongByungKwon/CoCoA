@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/mainHeader.css">
+    <title>비밀번호 재설정</title>
+    <link rel="icon" href="/img/favicon.png">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+<form action="/rePwd" method="POST" onsubmit="return validateForm()">
+    <div class="ID PW">
+        <input class="IDT" id="fPassword" name=fPassword type="password" placeholder="비밀번호">
+        <input class="PWT" id="fPasswordck" name=fPasswordck type="password" placeholder="비밀번호 재입력">
+        <input type="hidden" id=fEmail name=fEmail th:value="${result}">
+    </div>
+
+    <div id="buttonPwck">
+        <input type="submit" id="btnPwck" value="비밀번호 재설정">
+    </div>
+</form>
+
+<script>
+    function validateForm() {
+        var fPassword = document.getElementById("fPassword").value;
+        var fPasswordck = document.getElementById("fPasswordck").value;
+
+        if (fPassword === "" || fPasswordck === "") {
+            swal ( "빈 공간입니다." ,  "비밀번호를 적어주세요" ,  "error")
+            return false;
+        } else if (fPassword !== fPasswordck) {
+            swal ( "불일치" ,  "비밀번호가 일치하지 않습니다. 다시 입력해주세요." ,  "error")
+            return false;
+        }
+        swal("비밀번호 변경", "현재 입력하신 비밀번호로 변경되었습니다.", "success");
+        return true;
+    }
+</script>
+
+</body>
+</html>

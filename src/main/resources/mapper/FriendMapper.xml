@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cocoa.mapper.FriendMapper">
+
+	<select id="getList" parameterType="com.cocoa.dto.FriendDTO" resultType="com.cocoa.dto.FriendDTO">
+		<![CDATA[
+		select * from FRIEND
+		]]>
+	</select>
+
+	<insert id="save" parameterType="com.cocoa.dto.FriendDTO">
+		INSERT INTO FRIEND
+		(F_NAME, F_EMAIL,F_PASSWORD,F_PHONE,F_JOB) VALUES(#{fName}, #{fEmail}, #{fPassword}, #{fPhone}, #{fJob})
+
+	</insert>
+
+	<select id="login" parameterType="com.cocoa.dto.FriendDTO" resultType="string">
+		SELECT F_NAME FROM FRIEND
+	    WHERE
+	    F_EMAIL = #{fEmail} AND F_PASSWORD = #{fPassword}
+
+	</select>
+
+	<select id="star" resultType="com.cocoa.dto.StarDTO">
+		SELECT
+		    S_FEMAIL
+		, S_REVIEW
+		FROM STAR
+	</select>
+
+	<select id="getlecturelist" parameterType="com.cocoa.dto.LectureinfoDTO" resultType="com.cocoa.dto.LectureinfoDTO">
+		select * from lectureInfo where lf_code = #{lf_code}
+	</select>
+
+	<select id="findEmail" parameterType="com.cocoa.dto.FriendDTO" resultType="String">
+		select F_EMAIL
+		from FRIEND
+		where F_NAME = #{fName, jdbcType=VARCHAR} and F_PHONE = #{fPhone, jdbcType=VARCHAR}
+	</select>
+
+	<select id="ckPwd" parameterType="com.cocoa.dto.FriendDTO" resultType="String">
+		select f_email
+		FROM FRIEND
+		where f_email = #{fEmail} and f_name = #{fName}
+	</select>
+
+	<update id="rePwd" parameterType="com.cocoa.dto.FriendDTO">
+		update friend
+		set f_password = #{fPassword}
+		where f_email = #{fEmail}
+	</update>
+
+	<delete id="deleteFriend" parameterType="com.cocoa.dto.FriendDTO">
+		delete from friend
+		where f_email = #{fEmail}
+	</delete>
+
+	<select id="getPaymentList" resultType="com.cocoa.dto.PaymentDTO">
+		select * from payment
+	</select>
+	<select id="getLectureBox" parameterType="String" resultType="com.cocoa.dto.LectureBoxDTO">
+		select * from lecture
+		where l_code = #{lf_code}
+	</select>
+	<select id="getMyGoodList" parameterType="string" resultType="hashmap">
+		SELECT
+			COALESCE(L.L_IMAGE, '0') AS lImage,
+			COALESCE(L.L_TITLE, '0') AS lTitle,
+			COALESCE(G.g_pk, 0) AS g_pk
+		FROM FRIEND F
+			LEFT OUTER JOIN GOOD G
+		ON F.F_EMAIL = G.G_FEMAIL
+			LEFT OUTER JOIN LECTURE L
+		ON G.G_CODE = L.L_CODE
+			WHERE F.F_EMAIL = #{fEmail}
+	</select>
+
+	<select id="getGood" parameterType="String" resultType="com.cocoa.dto.GoodDTO">
+		select g_code from good
+		where g_femail = #{g_femail}
+	</select>
+
+	<delete id="deleteGoodList" parameterType="com.cocoa.dto.GoodDTO">
+		delete from good
+		where g_pk IN
+		<foreach collection="g_pk" item="g_pk" open="(" close=")" separator=",">
+			#{g_pk}
+		</foreach>
+	</delete>
+	<insert id="insertGood" parameterType="com.cocoa.dto.GoodDTO">
+		insert into good (g_pk, g_code, g_femail)
+		values (good_seq.nextval,
+		        #{g_code},
+		        #{g_femail})
+	</insert>
+
+	<delete id="deleteGood" parameterType="com.cocoa.dto.GoodDTO">
+		delete
+		from good
+		where g_code = #{g_code} and g_femail = #{g_femail}
+	</delete>
+
+	<insert id="insertStar" parameterType="com.cocoa.dto.StarDTO">
+		INSERT INTO STAR (S_PK, S_FEMAIL, S_CODE, S_STAR, S_REVIEW)
+		VALUES (STAR_SEQ.NEXTVAL,
+		        #{S_FEMAIL},
+		        #{S_CODE},
+		        #{S_STAR},
+		        #{S_REVIEW})
+	</insert>
+	<select id="getmemberlist" resultType="com.cocoa.dto.AdminFriendDTO">
+		select f_name,
+			   f_email,
+			   f_phone,
+			   f_job
+		from friend
+	</select>
+	<select id="paymentListInMypage" resultType="com.cocoa.dto.PaymentMypageDTO">
+	SELECT p.P_PK ,p.P_FEMAIL ,p.P_LCODE, p.P_PAYDATE , l.L_TITLE ,l.L_COST
+	FROM PAYMENT p, LECTURE l
+	WHERE p.P_LCODE = l.L_CODE
+	</select>
+</mapper>

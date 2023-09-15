@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>board</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+    <link rel="icon" href="/img/favicon.png">
+</head>
+<body>
+<div class="logoImg">
+    <a href="/managerCoumteo"><img src="/img/logo.png" alt="logo"></a>
+</div>
+<div class="container">
+    <h2>문의글 등록</h2>
+    <form id="frm" name="frm" method="post" action="/managerCoumteo/insertCoumteoInto">
+        <table class="board_detail">
+            <tr>
+                <td>제목</td>
+                <td><input type="text" id="title" name="Q_questionTitle"></td>
+            </tr>
+            <tr>
+                <td class="contentsTitle">문제내용</td>
+                <td colspan="2">
+                    <textarea id="contents" name="Q_questionContents"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>입력</td>
+                <td><input type="text" id="writer" name="Q_questionIn"></td>
+            </tr>
+            <tr>
+                <td>출력</td>
+                <td><input type="text"  name="Q_questionOut"></td>
+            </tr>
+
+            <tr>
+                <select id="rating" name="Q_questionKind">
+                    <option value="Java">JAVA</option>
+                    <option value="JavaScript">javascript</option>
+                    <option value="Html/Css">html/css</option>
+                    <option value="SQL">SQL</option>
+                    <option value="C">C언어</option>
+                    <option value="InformationProcessing">정보처리</option>
+                </select>
+            </tr>
+
+            <tr>
+                <td>출처</td>
+                <td><input type="text"  name="Q_questionLink"></td>
+            </tr>
+
+            <tr>
+                <td>답지</td>
+                <td><input type="file"  name="Q_questionDATA"></td>
+            </tr>
+        </table>
+        <input type="submit" id="submit" value="저장" class="btn">
+    </form>
+</div>
+</body>
+</html>

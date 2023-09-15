@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/mainHeader.css">
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="reading">
+        <a onclick='hello()'><img src="/img/headerImg/readingglasses.png" alt="돋보기"></a>
+    </div>  <!--reading 닫는 박스 -->
+    <div class="logo">
+        <a href="/loginHome"><img src="/img/logo.png" alt="logo"></a>
+    </div>
+    <a href="/logout" class="sighOut">로그아웃</a>
+    <ul class="clearfix">
+        <li><a href="/cart"><img src="/img/headerImg/MyPocket.png" alt="카트_이미지"></a></li>
+        <li><a href="/myPage"><img src="/img/headerImg/MyPage.png"
+                                                                     alt="마이페이지_이미지"></a></li>
+    </ul>
+    <script src="/js/login/friend.js"></script><!--모달창 불러오는 js-->
+</header><!--header-->
+
+
+<div id="header2">
+    <div id="headerMoll">
+        <div id="box0">
+            <form id="TextS" method="post" name="search" action="#">
+                <input id="search" type="text" placeholder="검색어 입력" name="searchText" maxlength="100">
+                <a href="#"></a>
+            </form>
+        </div><!--검색창-->
+        <ul id="headerLeft" class="clearfix">
+            <div id='box1' class="menuBox" onclick="location.href='CoCoA'">코코아(CoCoA)</div>
+            <ul id="subbox" class="submenu">
+                <div class="submenuBox" onclick="location.href='CoCoA'">코코아란?</div>
+                <div class="submenuBox" onclick="location.href='cibi';">CI/BI</div>
+                <div class="submenuBox" onclick="location.href='teacher';">강사소개</div>
+            </ul>
+
+            <div id='box2' class="menuBox" onclick="location.href='studyList'">강의 목록</div>
+            <div id='box3' class="menuBox" onclick="location.href='Coumteo'">코움터</div>
+            <div id='box4' class="menuBox" onclick="location.href='http://localhost:8080/csboard/openBoardList.do'">고객센터</div>
+        </ul>
+    </div><!-- 왼쪽 바깥쪽-->
+
+</div><!-- header2-->
+</body>
+<script src="/js/BoxHide.js"></script>
+<script src="/js/signUp.js"></script>
+<script src="/js/menubarSlide.js"></script>
+
+</html>

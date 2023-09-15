@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/studyList.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="stylesheet" href="/css/cocoaMenu.css">
+
+  <title>studyList</title>
+</head>
+
+<body>
+<div id="wrap">
+  <th:block th:if="${session.user ==null}">
+    <div th:replace="/include/studyHeader.html"></div>
+  </th:block>
+  <th:block th:if="${session.user != null}">
+    <div th:replace="/include/loginStudyHeader.html"></div>
+  </th:block>
+</div>
+<div id="content" class="clearfix">
+  <nav>
+    <ul class="studyListul clearfix">
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="JAVA">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#SQL">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+
+
+    <ul class="studyImgListul clearfix">
+      <li>
+        <form id="frm1" name="frm1" method="post" action="/lecture">
+          <input type="image" src="/img/studyListImg/java1.png" alt="자바강의 1">
+          <input type="hidden" id="lf_code1" name="lf_code" th:value="Java01">
+        </form>
+      </li>
+      <li>
+        <form id="frm2" name="frm2" method="post" action="/lecture">
+          <input type="image" src="/img/studyListImg/java2.png" alt="자바강의 2">
+          <input type="hidden" id="lf_code2" name="lf_code" th:value="Java02">
+        </form>
+      </li>
+      <li>
+        <form id="frm3" name="frm3" method="post" action="/lecture">
+          <input type="image" src="/img/studyListImg/java3.png" alt="자바강의 3">
+          <input type="hidden" id="lf_code3" name="lf_code" th:value="Java03">
+        </form>
+      </li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>입문자를 위해 준비한 풀스택코스 웹 개발<br><br>200,000원</li>
+      <li>[실무자용] Chat GPT를 활용한 프로그래밍<br><br>100,000원</li>
+      <li>Android - 안드로이드 앱 만들기<br><br>150,000원</li>
+    </ul>
+  </nav>
+
+
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="JAVASCRIPT">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/javascript1.png" alt="자바스크립트강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/javascript2.png" alt="자바스크립트강의 2"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/javascript3.png" alt="자바스크립트강의 3"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>JAVA SCRIPT로 배우는 코딩세계<br><br>Leo Kang<br><br>220,000원</li>
+      <li>함수형 프로그래밍과 Java Script<br><br>유니<br><br>285,000원</li>
+      <li>코어 자바 스크립트<br><br>Yeonny<br><br>230,000원 </li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="C언어">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/c1.png" alt="c언어강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/c2.png" alt="c언어강의 2"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/c3.png" alt="c언어강의 3"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>C언어 알고리즘 문제풀이<br><br>Byung Ku<br><br>270,000원</li>
+      <li>자료구조 & 알고리즘 기초<br><br>Yeonny<br><br>235,000원</li>
+      <li>C++ 문법<br><br>Byung Ku<br><br>270,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="JSP">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/jsp1.png" alt="JSP강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/jsp2.png" alt="JSP강의 2"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>JSP 웹 쇼핑몰 제작하기<br><br>Byung Ku<br><br>270,000원</li>
+      <li>실전 JSP (RENEW ver)<br><br>Leo Kang<br><br>300,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="HTML/CSS">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/htmlcss1.png" alt="html/css강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/htmlcss2.png" alt="html/css강의 2"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>프론트엔드 CSS 기초<br><br>유니<br><br>180,000원</li>
+      <li>Web Design 어디까지 알고 있니?<br><br>유니<br><br>300,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="안드로이드">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/android1.png" alt="안드로이드강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/android2.png" alt="안드로이드강의 2"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>안드로이드 앱 개발 기초편<br><br>Leo Kang<br><br>180,000원</li>
+      <li>게임 어플 만들기. 참 쉽죠?<br><br>Byung Ku<br><br>300,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="JQUERY">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/jquery1.png" alt="제이쿼리강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/jquery2.png" alt="제이쿼리강의 2"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>jQuery 기초편<br><br>엠제이<br><br>180,000원</li>
+      <li>jQuery 실전편<br><br>엠제이<br><br>200,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="SQL">SQL</a></li>
+      <li><a href="#정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/sql1.png" alt="sql강의 1"></a></li>
+      <li><a href="javascript:void(0);"><img src="/img/studyListImg/sql2.png" alt="sql강의 2"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>SQL 활용 중급편 -MySQL<br><br>Yeonny<br><br>250,000원</li>
+      <li>다양한 사례로 익히는 오라클 SQL -실전편<br><br>Yeonny<br><br>290,000원</li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="studyListul clearfix">
+      <li><a href="#">JAVA</a></li>
+      <li ><a href="#JAVA">JAVASCRIPT</a></li>
+      <li><a href="#JAVASCRIPT">C언어</a></li>
+      <li><a href="#C언어">JSP</a></li>
+      <li><a href="#JSP">HTML/CSS</a></li>
+      <li><a href="#HTML/CSS">안드로이드</a></li>
+      <li><a href="#안드로이드">JQUERY</a></li>
+      <li><a href="#JQUERY">SQL</a></li>
+      <li style="background-color: #A47C6D; color: white; font-weight: bold;"><a id="정보처리기사">정보처리기사</a></li>
+    </ul>
+    <ul class="studyImgListul clearfix">
+      <li><a href="#"><img src="/img/studyListImg/last1.png" alt="자바강의 1"></a></li>
+    </ul>
+    <ul class="studyIndexul clearfix">
+      <li>정보처리기사 필기 <br><br>Yeonny<br><br>250,000원</li>
+    </ul>
+  </nav>
+</div>
+
+<div th:replace="/include/footer.html"></div>
+</body>
+
+<script>
+
+</script>
+
+</html>

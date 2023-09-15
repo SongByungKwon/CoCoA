@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/img/favicon.png">
+    <meta charset="UTF-8">
+    <title>CoCoA_loginHome</title>
+</head>
+<body>
+
+<div id="wrap">
+
+    <div th:replace="/include/loginHeader.html"></div>
+    <div style="margin-left: 360px">
+    <div th:replace="/include/BannerSilde.html"></div>
+    <div th:replace="/include/contents.html"></div>
+    </div>
+    <div th:replace="/include/reviewContent.html"></div>
+    <div style="margin-left: 360px">
+    <div th:replace="/recruit/recruitlistjson.html"></div>
+    </div>
+    <div th:replace="/include/footer.html"></div>
+</div>
+</body>
+</html>

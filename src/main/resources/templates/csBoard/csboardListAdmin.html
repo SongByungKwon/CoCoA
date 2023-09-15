@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 고객센터</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+    <link rel="icon" href="/img/favicon.png">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<body>
+<div class="logoImg">
+    <a href="/managerHome"><img src="/img/logo.png" alt="logo"></a>
+</div>
+
+
+<th:block>
+<div class="container">
+    <h2>고객문의 목록</h2>
+    <table class="board_list">
+        <colgroup>
+            <col width="15%"/>
+            <col width="*"/>
+            <col width="15%">
+            <col width="15%"/>
+            <col width="25%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">글번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">닉네임</th>
+            <th scope="col">조회수</th>
+            <th scope="col">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list : ${list}">
+            <td th:text="${list.cs_board_idx}"></td>
+            <!--            <td th:text="${list.cs_title}"></td>-->
+<!--            <td class="title">-->
+<!--                <a href="/csboard/openBoardDetail.do?cs_board_idx="-->
+<!--                   th:attrappend="href=${list.cs_board_idx}"-->
+<!--                   th:text="${list.cs_title}">-->
+<!--                </a>-->
+<!--            </td>-->
+            <td class="title">
+                <a href="/csboard/openBoardDetail.do?cs_board_idx="
+                   th:attrappend="href=${list.cs_board_idx}"
+                   th:text="${list.cs_title}">
+                </a>
+            </td>
+            <td th:text="${list.cs_creator_id}" id="cs_creator_id"></td>
+            <td th:text="${list.cs_hit_cnt}"></td>
+            <td th:text="${list.cs_created_datetime}"></td>
+        </tr>
+        <tr th:if="${list.size()} == 0">
+            <td colspan="4">조회된 결과가 없습니다.</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/csboard/openBoardWrite.do" class="btn">글 쓰기</a>
+</div>
+</th:block>
+
+<script>
+    // 각 모달 요소를 순회합니다.
+    var modals = $('[id^="myModal"]');
+    var openModalBtns = $('[id^="openModalBtn"]');
+    var closeModalBtns = $('[id^="closeModalBtn"]');
+
+    modals.each(function(index) {
+        var modal = this;
+        var openModalBtn = openModalBtns[index];
+        var closeModalBtn = closeModalBtns[index];
+
+        // 모달 열기 버튼 클릭 시 이벤트 처리
+        openModalBtn.addEventListener("click", function() {
+            modal.style.display = "block";
+        });
+
+        // 모달 닫기 버튼 클릭 시 이벤트 처리
+        closeModalBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

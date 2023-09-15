@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/jsonbanner.css}">
+</head>
+<body>
+<div id="container" >
+  <div id="box">
+    <div id="slideShow">
+
+      <ul class="slides">
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.1</p>
+            <p th:text="${list[0].name}" class="name"></p><br>
+            <p th:text="${list[0].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[0].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.2</p>
+            <p th:text="${list[1].name}" class="name"></p><br>
+            <p th:text="${list[1].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[1].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.3</p>
+            <p th:text="${list[2].name}" class="name"></p><br>
+            <p th:text="${list[2].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[2].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.4</p>
+            <p th:text="${list[3].name}" class="name"></p><br>
+            <p th:text="${list[3].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[3].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.5</p>
+            <p th:text="${list[4].name}" class="name"></p><br>
+            <p th:text="${list[4].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[4].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.6</p>
+            <p th:text="${list[5].name}" class="name"></p><br>
+            <p th:text="${list[5].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[5].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.7</p>
+            <p th:text="${list[6].name}" class="name"></p><br>
+            <p th:text="${list[6].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[6].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.8</p>
+            <p th:text="${list[7].name}" class="name"></p><br>
+            <p th:text="${list[7].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[7].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.9</p>
+            <p th:text="${list[8].name}" class="name"></p><br>
+            <p th:text="${list[8].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[8].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <th:block>
+            <p class="number">공고 No.10</p>
+            <p th:text="${list[9].name}" class="name"></p><br>
+            <p th:text="${list[9].title}" class="title"></p><br>
+            <button class="recbutton" th:attr="data-url=${list[9].url}" onclick="openUrl(this.getAttribute('data-url'))">공고보기</button><br>
+          </th:block>
+        </li>
+        <li class="recli">
+          <br>
+          <br>
+          <p class="ment">코코아는</p><br>
+          <p class="ment">여러분의 취업을 응원합니다!</p>
+        </li>
+      </ul>
+      <p class="controller">
+
+        <!-- &lang: 왼쪽 방향 화살표
+        &rang: 오른쪽 방향 화살표 -->
+        <span class="prev">&lang;</span>
+        <span class="next">&rang;</span>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="/js/slideShow.js"></script>
+<script>
+  function openUrl(url) {
+    window.open(url, '_blank');
+  }
+</script>
+</body>
+</html>

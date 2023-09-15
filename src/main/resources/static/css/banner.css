@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+#banner {
+    height: 400px;
+    width: 1920px;
+    overflow: hidden;
+    margin-left: -360px;
+}
+
+.banner {
+    height: 400px;
+    overflow: hidden;
+}
+
+.banner > ul {
+    width: 9600px;
+    height: 400px;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.banner > ul > li {
+    width: 1920px;
+    height: 400px;
+    float: left;
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+#wrap{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#highBanner{
+    margin-top: 50px;
+    background-color: #A47C6D;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#nav{
+    float: left;
+    margin-left: 18px;
+    width: 232px;
+    height: 1030px;
+}
+
+#nav .subnav{
+    margin-top: 15px;
+    color: #59473F;
+    font-weight: bold;
+    height: 71px;
+    line-height: 71px;
+}
+
+#nav >ul >li{
+    height: 71px;
+    line-height: 71px;
+    font-weight: normal;
+}
+
+#nav >ul >li:hover{
+    font-weight: bold;
+}
+
+#content{
+    border-left: #A47C6D 1px solid;
+    float: right;
+    width: 950px;
+    height: 780px;
+    padding: 56px 0 0 50px;
+}
+
+.con > div{
+    width: 141px;
+    height: 53px;
+    font-size: 20px;
+    margin-right: 100%;
+    text-align: center;
+    line-height: 53px;
+    background-color: #A47C6D;
+    color: white;
+    border-radius: 5px;
+}
+.refundLabel{
+    margin-top: 15%;
+}
+
+table{
+    /* margin-top: 10px; */
+    width: 897px;
+    border: 1px solid black;
+}
+
+thead > tr > td{
+    font-size: 20px;
+}
+
+td{
+    font-size: 15px;
+    padding: 3px;
+    border: 1px #7c7c7c solid;
+    height: 53px;
+    text-align: center;
+}
+
+td > a{
+    font-size: 15px;
+    border: 1px solid black;
+    padding: 2px;
+}

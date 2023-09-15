@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Information</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/lectureinfo.css}">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="lecturewrap" class="clearfix">
+
+    <div id="lecturepayment">
+
+        <th:block th:if="${session.user == null}">
+            <div th:replace="/lecturepayment/nonSessionUser.html"></div>
+        </th:block>
+
+
+
+        <th:block th:each="payment : ${payment}" th:if="${session.user != null }">
+
+            <div th:if="${session.user != payment.p_femail}">
+                <div th:replace="/lecturepayment/sessionUserNopay.html"></div>
+            </div>
+
+
+            <th:block th:if ="${session.user == payment.p_femail}">
+
+                <div th:if="${payment.p_lcode != lecture.lf_code}">
+                    <div th:replace="/lecturepayment/sessionUserNopay.html"></div>
+                </div>
+
+                <div th:if ="${payment.p_lcode == lecture.lf_code}">
+                    <div th:replace="/lecturepayment/sessionUserPay.html"></div>
+                </div>
+
+            </th:block>
+
+
+        </th:block>
+
+
+    </div>
+    <div id="banner" class="clearfix">
+        <img src="/img/lectureinfo/lecturebanner.png" class="bannerimg" alt="강의배너이미지">
+        <th:block th:each="lecture : ${lecture}">
+            <h1 th:text="${lecture.lf_lectureTitle}" class="bannertitle"></h1>
+        </th:block>
+    </div>
+
+
+    <div id="lectureinfobox" class="clearfix">
+        <img src="/img/lectureinfo/lectureinfobox.png" class="infoboximg" alt="강의소개이미지">
+        <b class="infotitle">Step 01. 강의소개</b>
+        <div id="lectureinfobox01">
+            <th:block th:each="lecture : ${lecture}">
+                <p th:text="${lecture.lf_lectureTitle}" class="infobox01"> 강의입니다.</p>
+                <p th:text="${lecture.lf_lectureinfo}" class="infobox02"></p>
+            </th:block>
+        </div>
+        <div id="lectureinfobox02" class="clearfix">
+            <p class="infobox02-1">이런걸 배우게 될거에요!</p>
+            <th:block th:each="lecture : ${lecture}">
+                <p class="infobox02-2">□ <span th:text="${lecture.lf_firstSkill}" ></span></p>
+                <p class="infobox02-3">□ <span th:text="${lecture.lf_secondSkill}"></span></p>
+                <p class="infobox02-4">□ <span th:text="${lecture.lf_thirdSkill}"></span></p>
+                <p class="infobox02-5">□ <span th:text="${lecture.lf_forthSkill}"></span></p>
+            </th:block>
+        </div>
+    </div>
+
+
+    <div id="lectureteacherbox" class="clearfix">
+        <img src="/img/lectureinfo/lectureteacherbox.png" class="teacherboximg" alt="강사소개이미지">
+        <b class="teachertitle">Step 02. 강사소개</b>
+        <th:block th:each="lecture : ${lecture}">
+            <p class="teacherbox01" th:text="${lecture.lf_teacherTitle}"></p>
+            <p class="teacherbox02">Hello! <span th:text="${lecture.lf_teacherName}"></span></p>
+            <p class="teacherbox03" th:text="${lecture.lf_teacherInfo}"></p>
+            <img th:src="${lecture.lf_teacherimg}" class="teacherboxprofile" alt="강사이미지">
+        </th:block>
+    </div>
+
+    <div id="curriculumbox" class="clearfix">
+        <img src="/img/lectureinfo/curriculumboximg.png" class="curriculumboximg" alt="커리큘럼박스">
+        <b class="curriculumtitle">Step 03. 커리큘럼</b>
+
+
+        <table class="curriculumtable">
+            <tbody>
+            <th:block th:each="lecture : ${lecture}">
+                <tr>
+                    <td th:text="${lecture.lf_curriculumFirstTitle}" class="ctitle"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumFirstDetailOne}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumFirstDetailTwo}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumFirstDetailThree}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSecondTitle}" class="ctitle"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSecondDetailOne}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSecondDetailTwo}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSecondDetailThree}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumThirdTitle}" class="ctitle"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumThirdDetailOne}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSThirdDetailTwo}" class="cdata"></td>
+                </tr>
+                <tr>
+                    <td th:text="${lecture.lf_curriculumSThirdDetailThree}" class="cdata"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="reviewbox" class="clearfix">
+        <img src="/img/lectureinfo/lectureinfobox.png" class="reviewboximg" alt="리뷰박스">
+        <b class="reviewtitle">이전기수 수강후기</b>
+        <th:block th:each="lecture : ${lecture}">
+            <p class="reviewcontent01">" <span th:text="${lecture.lf_reviewFirst}"></span> "</p>
+            <p class="reviewerinfo01" th:text="${lecture.lf_reviewFirstName}"></p>
+            <p class="reviewcontent02">" <span th:text="${lecture.lf_reviewSecond}"></span> "</p>
+            <p class="reviewerinfo02" th:text="${lecture.lf_reviewSecondName}"></p>
+        </th:block>
+    </div>
+
+    <div th:each="payment : ${payment}"
+              th:if="${payment.p_lcode == lecture.lf_code}">
+    <div id="starbox" class="clearfix">
+        <b class="startitle">별점 매기기</b>
+        <form id="star" action="/lectureStar" method="post" onsubmit="return false;">
+        <!-- 콤보 박스 시작 -->
+        <select id="rating" class="selectstar">
+            <option value="1">★</option>
+            <option value="2">★★</option>
+            <option value="3">★★★</option>
+            <option value="4">★★★★</option>
+            <option value="5">★★★★★</option>
+        </select>
+        <!-- 콤보 박스 끝 -->
+        <input class="sreview" id="S_REVIEW" NAME="S_REVIEW" type="text" placeholder="짧은 수강평 남기기(50자 이내)">
+            <input type="hidden" id="S_FEMAIL" name="S_FEMAIL" th:value="${session.user}">
+            <input type="hidden" id="S_CODE" name="S_CODE" th:value="${lecture.lf_code}">
+
+                <input type="submit" onclick="star()" value="리뷰 남기기">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="quickmenu" style="float: right">
+        <ul>
+            <li><a href="http://localhost:8080/csboard/openBoardList.do">고객센터</a></li>
+            <li><a href="http://localhost:8080/studyList">강의목록</a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+</body>
+
+
+<script>
+    function star() {
+        // 콤보 박스 엘리먼트 가져오기
+        let S_FEMAIL = $("#S_FEMAIL").val();
+        let S_CODE = $("#S_CODE").val();
+        let ratingSelect = document.getElementById("rating");
+        let S_REVIEW = $("#S_REVIEW").val();
+
+        // 선택한 값을 저장할 변수 선언
+        let S_STAR = ratingSelect.value;
+
+        const data = {
+            S_FEMAIL : S_FEMAIL,
+            S_CODE : S_CODE,
+            S_STAR : S_STAR,
+            S_REVIEW : S_REVIEW
+        }
+
+        $.ajax({
+            type:"post",
+            url:"/lectureStar",
+            data : data,
+            success : function (data) {
+                console.log(data);
+                alert("리뷰등록이 완료되었습니다.");
+            },
+            error : function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("리뷰등록이 실패하였습니다.");
+            }
+        })
+    }
+    $(document).ready(function(){
+        let currentPosition = parseInt($(".quickmenu").css("top"));
+        $(window).scroll(function() {
+            let position = $(window).scrollTop();
+            $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
+        });
+    });
+</script>
+
+</html>

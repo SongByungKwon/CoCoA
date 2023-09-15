@@ -1,0 +1,18 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 데이터베이스 연결 설정 등 여러 가지 설정을 추가할 수 있습니다. -->
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<mappers>
+		<!-- 매퍼 XML 파일의 경로를 설정합니다. -->
+		<mapper resource="com/cocoa/mapper/FriendMapper.xml"/>
+		<mapper resource="com/cocoa/mapper/BoardMapper.xml"/>
+		<mapper resource="com/cocoa/mapper/CoumteoMapper.xml"/>
+		<mapper resource="com/cocoa/mapper/CartMapper.xml"/>
+		<!-- 다른 매퍼 설정도 추가 가능 -->
+	</mappers>
+</configuration>

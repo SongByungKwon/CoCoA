@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/lecturealert.css}">
+</head>
+
+<body>
+
+<th:block id="nonsu">
+    <p class="boxtitle">로그인이 필요해요!</p>
+    <form id="nonsufrm" action="/studyList" method="post">
+        <input class="boxbtn" type="submit" onclick="addCart()" value="수강신청하기">
+        <div class="boxinfo" th:each="lbox : ${lbox}">
+            <p class="boxgood">좋아요</p>
+            <p class="boxcost"> - 가격 : <span th:text="${lbox.l_cost}"></span> 원</p>
+            <p class="boxteacher"> - 선생님 이름 : <span th:text="${lbox.l_teacher}"></span></p>
+            <p class="boxtime"> - 강의 시간 : <span th:text="${lbox.l_time}"></span></p>
+            <p class="boxdoc"> - 수료증 : 발급</p>
+            <p class="boxdif"> - 난이도 : <span th:text="${lbox.l_difficulty}"></span></p>
+            <span  class="boxtag" th:text="${lbox.l_tag}"></span>
+        </div>
+    </form>
+</th:block>
+
+</body>
+
+<script>
+    function addCart() {
+        alert("로그인해주세요. 강의목록으로 돌아갑니다.");
+    }
+</script>
+
+</html>

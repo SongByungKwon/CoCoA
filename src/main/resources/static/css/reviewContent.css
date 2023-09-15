@@ -1,0 +1,40 @@
+@charset "utf-8";
+#rBody {
+    margin: 0 auto;
+}
+
+#review{
+    margin-top: 50px;
+    width: 1200px;
+    height: 400px;
+    background-color: #D8B8C5;
+}
+
+.subReviewName{
+    margin-top: 180px;
+    font-size: 20px;
+    padding-left: 100px;
+    width: 600px;
+    float: left;
+}
+
+.sRivewmain{
+    float: right;
+    padding-top: 20px;
+    margin-right: 100px;
+}
+
+.reviewText{
+    padding: 5px;
+    width: 500px;
+    height: 70px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+}

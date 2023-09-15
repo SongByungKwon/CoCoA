@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>고객센터</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+    <link rel="icon" href="/img/favicon.png">
+</head>
+<body>
+<div class="logoImg">
+    <a href="/csboard/openBoardList.do"><img src="/img/logo.png" alt="logo"></a>
+</div>
+<div class="container">
+    <h2>게시글 상세 화면</h2>
+    <form id="frm" method="post">
+    <table class="board_detail">
+        <colgroup>
+            <col width="15%"/>
+            <col width="15%"/>
+            <col width="15%"/>
+            <col width="35%"/>
+        </colgroup>
+        <caption>게시글 상세내용</caption>
+        <tbody>
+        <tr>
+            <th scope="row">글 번호</th>
+            <td th:text="${pwchk.cs_board_idx}" ></td>
+            <th scope="row">조회수</th>
+            <td th:text="${pwchk.cs_hit_cnt}"></td>
+            <th scope="row">작성자</th>
+            <td th:text="${pwchk.cs_email}"></td>
+        </tr>
+        <tr>
+            <th scope="row">닉네임</th>
+            <td th:text="${pwchk.cs_creator_id}"></td>
+            <th scope="row">작성일</th>
+            <td th:text="${pwchk.cs_created_datetime}"></td>
+        </tr>
+        <tr>
+            <th scope="row">제목</th>
+            <td colspan="3">
+                <input type="text" id="title" name="cs_title"
+                       th:value="${pwchk.cs_title}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="view_text">
+							<textarea title="내용" id="contents" name="cs_contents"
+                                      th:text="${pwchk.cs_contents}"></textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+        <input type="hidden" name="cs_board_idx" th:value="${pwchk.cs_board_idx}">
+    </form>
+
+    <input type="submit" id="list" class="btn" value="목록으로">
+    <input type="submit" id="edit" class="btn" value="수정하기">
+    <input type="submit" id="delete" class="btn" value="삭제하기">
+
+    <div id="comment-area">
+        <!-- Comments Form -->
+        <div class="card my-4">
+            <h5 class="card-header">댓글 작성하기</h5>
+            <div class="card-body">
+                <form name="comment-form" action="/csboard/reply/write.do" method="post" autocomplete="off">
+                    <div class="form-group" style="text-align: center">
+                        <input type="hidden" id="ar_idx" name="ar_idx" th:value="${pwchk.cs_board_idx}" />
+                        <textarea id="ar_content" name="ar_content" class="form-control" rows="3" style="width: 1000px; height: 70px;"></textarea>
+                        <input type="hidden" id="ar_email" name="ar_email" th:value="${session.user}" />
+                        <input type="hidden" id="ar_created_datetime" name="ar_created_datetime" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- Single Comment -->
+        <div class="media mb-4" id="comment">
+            <div class="media-body">
+                <!--"작성자 이름  날짜" 및 내용 출력-->
+                <h5 class="mt-0">댓글목록</h5>
+                <p class="replyptag" th:text="${result}"></p>
+<!--                <p class="replyptag"> [작성]  <p class="replyptag" th:text="${result.ar_writer}"></p></p>-->
+            </div>
+        </div>
+    </div>
+    <hr/>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#list").on("click", function(){
+                location.href = "openBoardList.do";
+            });
+
+            $("#edit").on("click", function(){
+                let frm = $("#frm")[0];
+                frm.action = "updateBoard.do";
+                frm.submit();
+            });
+
+            $("#delete").on("click", function(){
+                let frm = $("#frm")[0];
+                frm.action = "deleteBoard.do";
+                frm.submit();
+            });
+        })
+    </script>
+
+    <script defer>
+
+        $(document).ready(function (){
+            getReplyList();
+        })
+
+        function getReplyList(){
+            var ar_idx =  $('input[name=ar_idx]').val();
+
+            $.ajax({
+                type : 'GET',
+                url : '/getReplyList',
+                data : {
+                    ar_idx: ar_idx
+
+                },
+                success: function (result) {
+                    if (result === null) {
+                        console.log("서버로부터 데이터가 없습니다.");
+                    } else {
+                        // alert("통신성공")
+                        console.log("result 값 확인 : " +result);
+                        for(var i=0; i<result.length; i++){
+                            // var str = "<div class=\"reply\">"
+                            var str = "<div class=\"replytitle\"><span>"
+
+                            // str += "[댓글 작성자]&nbsp;&nbsp;" + result[i].ar_email + " [작성일] "+ result[i].ar_created_datetime+
+                            //     "<br><pre>[댓글 내용]&nbsp;&nbsp;" + result[i].ar_content + "</pre></div><hr>";
+
+                            str += "[댓글 작성자]&nbsp;&nbsp;" + result[i].ar_email +"</span><span>"
+                                +" [작성일] "+ result[i].ar_created_datetime+"</span></div>"
+                                +"<div class=\"reply\"><pre>" + "[댓글 내용]&nbsp;&nbsp;" + result[i].ar_content + "</pre></div><hr>"
+
+                            $("#comment").append(str);
+                            console.log("result 값 확인 : ", result[i]);
+                        }
+                        console.log("result 값 확인 : " +result[0].ar_content);
+                        console.log("result 값 확인 : " +result[0].ar_email);
+                        console.log("result 값 확인 : " +result[0].ar_created_datetime);
+                    }
+
+                },
+                error : function (result){
+                    alert("통신실패");
+                },
+                complete : function (){
+
+                }
+            })
+        }
+
+
+    </script>
+</div>
+</body>
+</html>

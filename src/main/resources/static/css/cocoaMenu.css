@@ -1,0 +1,283 @@
+@charset "utf-8";
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+}
+li{
+    list-style: none;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+body{
+    width: 1920px;
+}
+
+
+#wrap{
+    width: 1200px;
+}
+
+
+#header{
+    width: 100%;
+    height: 200px;
+}
+.reading {
+    padding-top: 140px;
+    cursor: pointer;
+    width: 150px;
+    float: left;
+}
+
+.reading>a{
+    float: left;
+}
+
+.logo{
+    text-align: center;
+    display: block;
+    width: 895px;
+    float: left;
+
+}
+
+.LoginBox {
+
+    width: 155px;
+    float: left;
+    margin-top: 160px;
+
+}
+
+.LButton{
+    background: #A47C6D;
+    color: white;
+    text-decoration:none;
+    width: 75px;
+    height: 30px;
+    text-align:center;
+    border-radius:5px;
+    float: left;
+    cursor: pointer;
+
+
+}
+
+/*모달창 시작*/
+#modalOpenButton{
+    cursor: pointer;
+}
+
+#modalCloseButton{
+    cursor: pointer;
+    float: right;
+}
+
+#modalContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#modalContent {
+    border-radius: 20px;
+    position: absolute;
+    background-color: #ffffff;
+    width: 600px;
+    height: 550px;
+    padding: 15px;
+}
+
+#LoginImg{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+
+#modalContainer.hidden {
+    display: none;
+}
+
+#ID{
+    text-align: center;
+
+}
+.IDT{
+    width: 350px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+#PW{
+    text-align: center;
+}
+.PWT{
+    margin-top: 25px;
+    width: 350px;
+    height: 50px;
+    border-radius: 15px;
+}
+#buttonLogin{
+
+    text-align: center;
+}
+#btnLogin{
+    margin-top: 30px;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #A47C6D;
+    color: #ffffff;
+}
+
+
+#TextBox{
+
+    width: 400px;
+    display: flex;
+    margin-top: 20px;
+    text-align: center; /*추가*/
+}
+.l{
+    width: 1px;
+    height: 15px;
+    background-color: #333333;
+    line-height: 15px; /*추가*/
+    margin-top: 5px;
+}
+
+
+/*모달창 끝*/
+
+
+
+
+.space {
+    width: 5px;
+    height: 30px;
+    display: inline-block;
+    float: left;
+}
+
+
+#header2{
+    width: 100%;
+    height: 250px;
+    position: relative;
+    margin: 0 auto;
+
+}
+
+.menuBox{
+    width: 150px;
+    height: 50px;
+    float: left;
+    border:1px solid;
+    line-height : 50px;
+    text-align:center;
+    color: #A47C6D;
+    cursor: pointer;
+}
+
+
+
+
+#headerMoll{
+    width: 300px;
+    height: 250px;
+    float: left;
+    z-index: 2;
+    position: absolute;
+}
+
+#box0{
+    width: 300px;
+    height: 50px;
+    border:1px solid;
+    text-align: center;
+    float: left;
+}
+#TextS{
+    margin-top: 5px;
+}
+#KaKao{
+    width: 200px;
+    margin-top: 10px;
+    display: flex;
+
+
+}
+
+#headerLeft{
+    width: 150px;
+    height: 200px;
+    float: left;
+}
+
+#headerLeft>div:hover{
+    text-decoration: underline #59473F;
+}
+
+
+
+
+#search{
+    width: 270px;
+    height: 35px;
+    background:url("../img/sebutton.png") no-repeat right;
+}
+#search >a{
+    float: left;
+}
+.centerS{
+
+    width: 1200px;
+    height: 250px;
+    float: left;
+    text-align: center;
+}
+
+#cocoacenter{
+    width: 1200px;
+    height: 150px;
+    text-align: center;
+}
+
+#center{
+    width: 450px;
+    height: 50px;
+}
+
+
+.cocoabox{
+    margin-top: 200px;
+    width: 150px;
+    height: 50px;
+    border: #000000 1px solid;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+}
+
+#center>div:hover{
+    background-color: #A47C6D;
+    color: white;
+}

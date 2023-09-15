@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alert.css}">
+</head>
+<body>
+<div id="myModal" class="modal">
+    <form id="frm" class="modal-content" action="/csboard/openBoardList.do" method="post">
+        <input type="submit" id="modalCloseBtn" class="close" value="확인" >
+        <p>비밀번호를 확인해주세요. 리스트로 돌아갑니다.</p>
+    </form>
+</div>
+
+<script>
+    // 페이지가 로드될 때 모달 창 표시
+    window.onload = function() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    // 모달 닫기 버튼 클릭 이벤트 핸들러
+    document.getElementById("modalCloseBtn").onclick = function() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+
+</body>
+
+</html>

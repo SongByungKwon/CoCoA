@@ -1,0 +1,45 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    box-sizing: border-box;
+}
+
+.loginBox {
+    margin-top: 13%;
+    text-align: center;
+    width: 420px;
+    height: 540px;
+    border: 1px solid #59473F;
+    border-radius: 5px;
+}
+
+.managerLabel {
+    font-size: 20px;
+}
+
+.managerId, .managerPw {
+    width: 350px;
+    height: 50px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.managerLoginBtn {
+    margin-top: 30px;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #A47C6D;
+    color: #ffffff;
+}
+

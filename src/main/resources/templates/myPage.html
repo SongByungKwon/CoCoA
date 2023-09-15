@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<link rel="stylesheet" href="/css/myPage.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <title>코코아(Coding course Academy)</title>
+</head>
+<body>
+
+<th:block th:if="${session.user ==null}">
+    <script>
+        alert("로그인 부탁드립니다.");
+        window.location.href='/'
+    </script>
+
+</th:block>
+<th:block th:if="${session.user != null}">
+    <div th:replace="/include/myPageHeader.html"></div>
+</th:block>
+<div id="wrap" class="clearfix">
+    <div id="highBanner"><b th:text="${session.user1}"></b>님의 성장을 응원합니다.</div>
+    <nav id="nav">
+        <ul>
+            <li class="subnav"><a href="/myPage">마이페이지</a></li>
+            <li><a href="/personal">개인정보 수정</a></li>
+            <li class="subnav">학습관리</li>
+            <li><a href="/myLecture">내 강의</a></li>
+            <li><a href="/good">좋아요 표시한 강의</a></li>
+            <li><a href="/cart">장바구니</a></li>
+            <li><a href="/paymentList">결제 내역</a></li>
+        </ul>
+    </nav>
+    <section id="content" class="con clearfix">
+        <div id="recently" class="rec">
+            <p>최근 학습 강의</p>
+            <br><br><br>
+            <p>Android - 안드로이드 앱 만들기</p>
+            <a href="/studyMP4_java03" class="study">바로 학습</a>
+        </div>
+        <div id="complete">
+            <p>수료증 발급</p>
+            <a href="#" class="all">전체보기</a><br><br>
+            <img src="/img/no.png" alt="강의 목록이 없을 경우 보여지는 이미지">
+        </div>
+        <div id="good">
+            <p>❤ 좋아요 표시한 강의</p>
+            <input type="hidden" name="fEmail" th:value="${session.user}">
+            <a href="/good" class="all">전체보기</a><br><br>
+            <ul>
+                <li th:each="item : ${goodList}" th:text="${item.LTITLE}"></li>
+            </ul>
+        </div>
+        <div id="payment">
+            <p>결제 내역</p>
+            <a href="/paymentList" class="all">전체보기</a><br><br>
+            <ul th:each="paylist : ${paylist}" >
+                <li th:text="${paylist.L_TITLE}"></li>
+            </ul>
+        </div>
+    </section>
+</div>
+<div th:replace="/include/footer.html"></div>
+</body>
+
+
+</html>

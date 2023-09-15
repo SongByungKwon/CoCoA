@@ -1,0 +1,52 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+h3{
+    font-size: 16px;
+}
+
+img{
+    display: block;
+}
+
+#teacher{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#teacher >div{
+    height: 400px;
+    background-color: #D8B8C5;
+    margin-bottom: 50px;
+}
+
+#teacher >div .teacherImg{
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+#teacher >div .teacherImg>img{
+    margin:100px 0px 0px 200px;
+}
+
+#teacher >div .teacherText{
+    margin: 96px 0px 0px 30px;
+    width: 570px;
+    height: 200px;
+    float: left;
+    background-color: white;
+    line-height: 1.5;
+    padding: 5px 0px 0px 50px;
+}

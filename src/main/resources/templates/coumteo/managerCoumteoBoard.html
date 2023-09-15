@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Coumteo</title>
+</head>
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<link rel="stylesheet" href="/css/managerCoumteoBoard.css">
+<body>
+<div id="wrap" class="clearfix">
+
+  <div class="logoImg">
+    <a href="/managerCoumteo"><img src="/img/logo.png" alt="logo"></a>
+  </div>
+  <div class="longbox"><b>관리자님 환영합니다.</b></div>
+  <div style="width: 1200px; margin: 0 auto">
+
+    <form id="frm" method="post">
+
+      <table class="board_detail">
+        <colgroup>
+
+          <col style="width:15%"/>
+          <col style="width:35%"/>
+          <col style="width:15%"/>
+          <col style="width:35%"/>
+
+        </colgroup>
+        <div>
+          <h1 th:text="${board.Q_questionTitle}"></h1>
+          <a href="/managerCoumteo" id="list"><img src="/img/list_icon.png"></a>
+        </div>
+
+        <div id="dataTime">
+          <h4>작성일</h4>
+          <h4 th:text="${board.Q_questionDateTime}"> </h4>
+        </div>
+
+        <div class="CoumteoBoardBox2">
+          <h4>문제 번호</h4>
+          <h4 name="Q_question" id="Q_question" th:text="${board.Q_question} " class="h4Text"> </h4>
+        </div>
+
+        <div class="CoumteoBoardBox2">
+          <h4>문제</h4>
+          <input type="text" id="Q_questionContents" name="Q_questionContents" class="h4Text" th:value="${board.Q_questionContents}">
+        </div>
+
+        <div class="CoumteoBoardBox">
+          <h4>입력</h4>
+          <input type="text" id="Q_questionIn" name="Q_questionIn" class="h4Text1" th:value="${board.Q_questionIn}" >
+        </div>
+
+        <div class="CoumteoBoardBox" style="border-right: #000000 1px solid">
+          <h4>출력</h4>
+          <input type="text" id="Q_questionOut" name="Q_questionOut" class="h4Text1" th:value="${board.Q_questionOut}">
+        </div>
+
+        <div class="CoumteoBoardBox3">
+          <h4>출처</h4>
+          <input type="text" id="Q_questionLink" name="Q_questionLink" class="h4Text" th:value="${board.Q_questionLink}">
+        </div>
+
+
+        <div class="CoumteoBoardBox3">
+          <h4>답지</h4>
+        </div>
+        <input type="submit" id="listCoumteo" value="목록으로">
+
+
+
+        <input type="submit" id="delete" value="삭제하기">
+      </table>
+      <input type="hidden" name="Q_question" th:value="${board.Q_question}">
+
+    </form>
+  </div>
+  <div th:replace="/include/footer.html"></div>
+</div>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#listCoumteo").on("click", function(){
+      location.href="coumteo/managerCoumteo";
+    });
+
+
+
+
+    $("#delete").on("click", function(){
+      let frm = $("#frm")[0];
+      alert("10")
+      frm.action = "/coumteo/coumteodelete";
+      frm.submit();
+    });
+  })
+</script>

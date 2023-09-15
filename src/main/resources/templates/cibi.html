@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <title>CIBI</title>
+    <link rel="stylesheet" href="/css/cocoaMenu.css">
+    <link rel="stylesheet" href="/css/cibi.css">
+</head>
+<body>
+
+<div id="wrap">
+
+    <th:block th:if="${session.user ==null}">
+        <div th:replace="/include/cocoaHeader.html"></div>
+    </th:block>
+    <th:block th:if="${session.user != null}">
+        <div th:replace="/include/loginCocoaHeader.html"></div>
+    </th:block>
+</div>
+<div style="text-align: center">
+    <h2 id="symma"><br><br>SYMBOL MARK<br>-<br></h2>
+    <b>Co</b>ding <b>Co</b>s <b>A</b>cademy를 줄여 코코아(<b>CoCoA</b>)로 이름 지었으며,<br>
+    코코아를 상징하는 <b>카카오열매</b>를 대표 로고로 설정하였습니다.<br><br>
+    가공하기 전 씁쓸했던 카카오 열매는 가공 후 달달한 초콜릿으로 변합니다.<br>
+    코코아에서 코딩을 통해 달달한 초콜릿으로 바뀌어가는 여러분을 표현하였습니다.<br><br>
+    코코아와 함께 성장할 여러분을 응원합니다.<br>
+    <div id="CI">
+        <img src="/img/cocoa/CIImg.png" alt="심볼이미지">
+        <br><strong>SYMBOL COLOR</strong><br><br>
+        <b>#742F23</b>
+    </div>
+    <h2 id="logoma">LOGO MARK<br>-<br></h2>
+    <b>Co</b>ding <b>Co</b>s <b>A</b>cademy(<b>CoCoA</b>) 로고타입은 심볼마크와 함께 CI의 기본요소 중<br>
+    하나로 "코딩 코스 아카데미"의 공식적인 명칭을 표기하기 위해 제작하였습니다.<br><br>
+    로고타입은 심볼마크와 조화를 고려하여 디자인하여 Playball 서체를 사용하였습니다.<br>
+    <div id="BI">
+        <img src="/img/cocoa/logoImg.png" alt="로고이미지">
+        <br><br><strong>LOGO COLOR</strong><br><br>
+        <b>#4E1D16</b>
+    </div>
+</div>
+<div th:replace="/include/footer.html"></div>
+
+</body>
+</html>

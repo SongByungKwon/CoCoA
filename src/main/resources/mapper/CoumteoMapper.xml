@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cocoa.mapper.CoumteoMapper">
+
+    <select id="selectCoumteoList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+        ORDER BY
+            Q_question
+    </select>
+
+
+
+
+    <select id="selectCoumteoJavaList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='Java'
+
+        ORDER BY
+            Q_question
+    </select>
+
+    <select id="selectCoumteoJavascriptList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='JavaScript'
+
+        ORDER BY
+            Q_question
+    </select>
+
+
+    <select id="selectCoumteoHtmlCssList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='Html/Css'
+
+        ORDER BY
+            Q_question
+    </select>
+
+
+    <select id="selectCoumteoSQLList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='SQL'
+
+        ORDER BY
+            Q_question
+    </select>
+
+
+    <select id="selectCoumteoCList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='C'
+
+        ORDER BY
+            Q_question
+    </select>
+
+
+    <select id="selectCoumteoInformationProcessingList" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+
+        where
+            Q_questionKind ='InformationProcessing'
+
+        ORDER BY
+            Q_question
+    </select>
+
+
+
+
+
+
+    <!--  상세보기 -->
+    <select id="selectCoumteoBoard" parameterType="int" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime,
+            Q_questionDATA,
+            Q_questionIn,
+            Q_questionOut,
+            Q_questionLink
+        FROM
+            question
+        where
+            Q_question = #{Q_question}
+    </select>
+
+
+
+
+    <select id="managerCoumteo" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime
+        FROM
+            question
+        ORDER BY
+            Q_question
+    </select>
+
+    <insert id="insertCoumteoInto" parameterType="com.cocoa.dto.CoumteoDTO">
+    INSERT INTO QUESTION (
+    Q_question,
+    Q_questionTitle,
+    Q_questionContents,
+    Q_questionKind,
+    Q_questionIn,
+    Q_questionOut,
+    Q_questionLink,
+    Q_questionDATA
+    )
+    SELECT
+    CASE
+    WHEN #{Q_questionKind} = 'Java' THEN QUESTION_SEQ.nextval
+    WHEN #{Q_questionKind} = 'C' THEN QUESTIONC_SEQ.nextval
+    WHEN #{Q_questionKind} = 'Html/Css' THEN QUESTIONHTML_SEQ.nextval
+    WHEN #{Q_questionKind} = 'JavaScript' THEN QUESTIONJS_SEQ.nextval
+    WHEN #{Q_questionKind} = 'InformationProcessing' THEN QUESTIONPROCESSING_SEQ.nextval
+    WHEN #{Q_questionKind} = 'SQL' THEN QUESTIONSQL_SEQ.nextval
+    END,
+    #{Q_questionTitle},
+    #{Q_questionContents},
+    #{Q_questionKind},
+    #{Q_questionIn},
+    #{Q_questionOut},
+    #{Q_questionLink},
+    #{Q_questionDATA}
+    FROM DUAL
+    </insert>
+
+
+
+
+    <select id="managerCoumteoBoard" parameterType="int" resultType="com.cocoa.dto.CoumteoDTO">
+        SELECT
+            Q_question,
+            Q_questionTitle,
+            Q_questionContents,
+            Q_questionKind,
+            TO_CHAR(Q_questionDateTime, 'YYYY.MM.DD HH24:MI:SS') AS Q_questionDateTime,
+            Q_questionDATA,
+            Q_questionIn,
+            Q_questionOut,
+            Q_questionLink
+        FROM
+            question
+        where
+            Q_question = #{Q_question}
+    </select>
+
+
+
+
+        <delete id="coumteodelete" parameterType="int">
+            delete
+            from QUESTION
+            WHERE Q_question = #{Q_question}
+        </delete>
+
+
+
+
+
+
+
+
+</mapper>

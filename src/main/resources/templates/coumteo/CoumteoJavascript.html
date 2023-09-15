@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Coumteo</title>
+  <link rel="stylesheet" href="/css/coumteo.css">
+  <link rel="stylesheet" href="/css/loginHeader.css">
+  <link rel="icon" href="/img/favicon.png">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+<div id="wrap" class="clearfix">
+      <th:block th:if="${session.user ==null}">
+        <script>
+          swal({
+            title: "로그인 부탁드립니다.",
+            text: "현재 로그인 정보가 없습니다. 로그인 부탁드립니다.",
+            icon: "error",
+            button: true,
+            dangerMode: true,
+          })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                      window.location.href='/'
+                    }
+                  });
+        </script>
+
+      </th:block>
+  <th:block th:if="${session.user != null}">
+    <div th:replace="/include/myPageHeader.html"></div>
+  </th:block>
+  <div class="longbox"><p><b th:text="${session.user1}"></b>님의 성장을 응원합니다.<p></div>
+
+  <div id="CoumteoMenu">
+    <li class="CoumteoBox"><a href="/CoumteoJava">Java</a></li>
+    <li class="CoumteoBox"><a href="/Coumteojavascript">javascript</a></li>
+    <li class="CoumteoBox"><a href="/CoumteoHtmlCss">html/css</a></li>
+    <li class="CoumteoBox"><a href="/CoumteoSQL">SQL</a></li>
+    <li class="CoumteoBox"><a href="/CoumteoC">C언어</a></li>
+    <li class="CoumteoBox"><a href="/CoumteoInformationProcessing">정보처리</a></li>
+  </div>
+
+  <table class="board_list">
+    <colgroup>
+      <col width="15%"/>
+      <col width="*"/>
+      <col width="15%"/>
+      <!--            <col width="15%"/>-->
+      <col width="25%"/>
+    </colgroup>
+    <thead>
+    <tr>
+      <th scope="col">문제</th>
+      <th scope="col">문제 제목</th>
+      <th scope="col">문제 종류</th>
+      <th scope="col">작성일</th>
+      <!--            <th scope="col">내용</th> 해야한다 병권아-->
+    </tr>
+    </thead>
+    <tbody >
+    <tr th:each="Javascriptlist : ${Javascriptlist}">
+
+      <td id="Q_question" th:text="${Javascriptlist.Q_question}"></td>
+
+
+      <td class="title">
+        <a href="/coumteoBoard?Q_question="
+           th:attrappend="href=${Javascriptlist.Q_question}"
+           th:text="${Javascriptlist.Q_questionTitle}"></a></td>
+
+
+
+
+
+      <td th:text="${Javascriptlist.Q_questionKind}" id="cs_creator_id"></td>
+      <td th:text="${Javascriptlist.Q_questionDateTime}"></td>
+
+      </form>
+    </tr>
+
+
+
+    </tbody>
+  </table>
+</div>
+
+<div class="longbox"></div>
+<div th:replace="/include/footer.html"></div>
+</body>
+</html>

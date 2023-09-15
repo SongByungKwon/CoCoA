@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="/css/loginHeader.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<body>
+<div id="header1" class="clearfix">
+    <div class="reading">
+        <a onclick='hello()'><img src="/img/headerImg/readingglasses.png" alt="돋보기"></a>
+    </div>  <!--reading 닫는 박스 -->
+    <div class="logo">
+        <a href="/loginHome"><img src="/img/logo.png" alt="로고이미지"></a>
+    </div>
+    <a href="/logout" class="sighOut">로그아웃</a>
+    <ul class="clearfix">
+        <li><a href="/cart"><img src="/img/headerImg/MyPocket.png" alt="카트_이미지"></a></li>
+        <li><a href="/myPage"><img src="/img/headerImg/MyPage.png"
+                                                                     alt="마이페이지_이미지"></a></li>
+    </ul>
+    </div>
+
+    <div id="header2" class="clearfix">
+        <div id="headerMoll">
+            <div id="box0">
+                <form id="TextS" method="post" name="search" action="/studyList" onsubmit="return searchKeyword();">
+                    <input id="search" type="text" placeholder="검색어 입력" name="searchText" maxlength="100">
+                    <a href="#"></a>
+                </form>
+            </div><!--검색창-->
+
+            <ul id="headerLeft" class="clearfix">
+                <div id='box1' class="menuBox" onclick="location.href='CoCoA'">코코아(CoCoA)</div>
+                <ul id="subbox" class="submenu">
+                    <div class="submenuBox" onclick="location.href='CoCoA'">코코아란?</div>
+                    <div class="submenuBox" onclick="location.href='cibi';">CI/BI</div>
+                    <div class="submenuBox" onclick="location.href='teacher';" >강사소개</div>
+                </ul>
+
+            <div id='box2' class="menuBox" onclick="location.href='studyList';">강의 목록</div>
+            <div id='box3' class="menuBox" onclick="location.href='Coumteo'">코움터</div>
+            <div id='box4' class="menuBox" onclick="location.href='http://localhost:8080/csboard/openBoardList.do'">
+                고객센터
+            </div>
+        </ul>
+
+        </div><!-- 왼쪽 바깥쪽-->
+
+
+
+        <div class="centerS">
+            <h1 class="cocoa">코코아와 함께하는 한 걸음</h1>
+
+        <form class="marginT20" method="post" name="search" action="/studyList" onsubmit="return searchKeyword();">
+            <input class="centerSe" type="text" name="searchText" maxlength="100" placeholder="검색어 입력 후 ENTER 눌러주세요"
+                   id="searchText">
+        </form>
+
+    </div><!--가운데 있는 검색창-->
+</div><!-- header2-->
+
+<script src="/js/BoxHide.js"></script>
+<script src="/js/menubarSlide.js"></script>
+
+</body>
+
+
+<script>
+    //챗봇 스크립트
+    window.dyc = {
+        chatbotUid: "d097cd7d7b4a601c"
+    };
+</script>
+<script async src="https://cloudturing.chat/v1.0/chat.js"></script>
+<script>
+
+    function searchKeyword() {
+        // 검색어 입력란의 값을 가져옵니다.
+        let searchText = document.getElementById("searchText").value;
+
+        // 검색어가 비어있는 경우 처리
+        if (searchText.trim() === "") {
+            swal ( "입력해주세요" ,  "아무 정보가 없습니다." ,  "error" )
+            return false;
+        }
+
+        // 검색어가 비어있지 않다면 원하는 동작을 수행합니다.
+        if (searchText === "자바" || searchText === "java" || searchText === "JAVA") {
+            alert("자바 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "자바스크립트" || searchText === "javascript" || searchText === "JAVASCRIPT") {
+            alert("자바스크립트 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "C언어" || searchText === "C" || searchText === "c" || searchText === "c언어") {
+            alert("C언어 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "jsp" || searchText === "JSP") {
+            alert("JSP 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "HTML" || searchText === "html" || searchText === "css" || searchText === "CSS") {
+            alert("HTML/CSS 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "안드로이드" || searchText === "ANDROID" || searchText === "android") {
+            alert("안드로이드 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "jquery" || searchText === "JQUERY" || searchText === "제이쿼리") {
+            alert("JQUERY 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "SQL" || searchText === "sql") {
+            alert("SQL 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "정보처리기사" || searchText === "기사") {
+            alert("정보처리기사 강의를 검색합니다.");
+            return true;
+        } else {
+            swal ( "없습니다." ,  "해당 강의가 없습니다." ,  "error" )
+            return false;
+        }
+    }
+</script>

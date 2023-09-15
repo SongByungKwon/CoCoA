@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+#contents{
+    margin: 0 auto;
+}
+
+#contents > div > h5 {
+    padding: 10px;
+    margin-left: 80px;
+}
+
+#contents > div > ul > li {
+    float: left;
+    margin-right: 10px;
+}
+
+#contents > div > ul > li:first-child {
+    margin-left: 80px;
+}

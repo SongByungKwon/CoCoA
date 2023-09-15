@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/fStyle.css">
+<meta charset="UTF-8">
+<footer id="footer" class="clearfix">
+    <div class="f_logo">
+        <a href="/"><img src="/img/logo.png" alt="하단로고 이미지"></a>
+    </div>
+	<div class="f_menu clearfix">
+        <a href="javascript:void(0);" class="aPrivate">개인정보처리방침</a>
+        <a href="javascript:void(0);" class="aCopy">무단복제</a>
+        <a href="http://localhost:8080/csboard/openBoardList.do">고객센터</a>
+        <a href="javascript:void(0);" class="aAccess">이용약관</a>
+    </div>
+
+    <div class="adr">
+        <address>
+            대표 : 팀 코송이 TEL : 02)3667-0008<br>주소: 서울특별시 구로구 경인로 557, 신한은행 4층
+        </address>
+    </div>
+    <div class="github">
+        <a href="https://github.com/SongByungKwon"><img src="/img/git.png" alt="깃허브이미지"></a>
+    </div>
+    <div class="fLayer">
+        <div id="layerPrivate" class="clearfix">
+            <p class="fLayerText">
+                <em class="fLayerTitle"><br>개인정보처리방침</em><br><br>
+                <span class="fDesc">코코아 개인정보처리방침 관련 내용입니다.<br>
+                    수강, 결제 등 일부 서비스는 회원가입 후 이용할 수 있습니다.<br>
+                    코코아는 회원가입 과정에서 최소한의 정보를 수집합니다.<br>
+                    그 외에는 고객센터를 통한 상담 과정에서 개인정보가 수집될 수 있습니다.<br>
+                    코코아는 원칙적으로 이용자의 동의 없이 개인정보를 외부로 제공하지 않습니다.<br>
+                    프라이버시 침해가 최소화되도록 노력하겠습니다.<br>
+                    개인정보 처리방침에 변경이 있다면, 사전에 홈페이지를 통해 변경내역을 고지합니다.
+            </span>
+            </p>
+            <a href="javascript:void(0);" class="close">닫기</a>
+        </div>
+
+        <div id="layerCopy" class="clearfix">
+            <p class="fLayerText">
+                <em class="fLayerTitle"><br>무단복제</em><br><br>
+                <span class="fDesc">코코아 무단복제 관련 내용 요약입니다.<br>
+                    코코아는 컨텐츠의 가치를 중시합니다.<br>
+                    저작권자의 동의 없는 컨텐츠 이용, 불법 유통 등을 금지합니다.<br>
+                    해당 내용이 저작권법 위반으로 판결될 경우, 법적 처벌을 진행합니다.<br>
+                    저작권자의 권리 보호에 함께해주세요.
+            </span>
+            </p>
+            <a href="javascript:void(0);" class="close">닫기</a>
+        </div>
+
+        <div id="layerAccess" class="clearfix">
+            <p class="fLayerText">
+                <em class="fLayerTitle"><br>이용약관</em><br><br>
+                <span class="fDesc">코코아 이용약관 관련 내용 요약입니다.<br>
+                    여러분을 환영합니다.<br>
+                    다양한 코코아 서비스를 이용해보세요.<br>
+                    여러분이 제공한 콘텐츠를 소중히 다룰 것이며,<br>
+                    여러분의 개인정보를 소중히 보호하겠습니다.<br>
+                    언제든지 코코아 서비스 이용계약을 해지할 수 있습니다.<br>
+                    서비스 중단 또는 변경 시 꼭 알려드리겠습니다.<br>
+                    주의 사항을 잘 안내하고 여러분의 소중한 의견을 듣겠습니다.<br>
+                    여러분이 쉽게 알 수 있도록 약관 및 운영정책을 게시합니다.
+            </span>
+            </p>
+            <a href="javascript:void(0);" class="close">닫기</a>
+        </div>
+    </div>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(".aPrivate").click(function () {
+        $("#layerPrivate").fadeIn();
+    });
+    $(".close").click(function () {
+        $("#layerPrivate").fadeOut();
+    });
+
+
+    $(".aCopy").click(function () {
+        $("#layerCopy").fadeIn();
+    });
+    $(".close").click(function () {
+        $("#layerCopy").fadeOut();
+    });
+
+
+    $(".aAccess").click(function () {
+        $("#layerAccess").fadeIn();
+    });
+    $(".close").click(function () {
+        $("#layerAccess").fadeOut();
+    });
+</script>

@@ -1,0 +1,380 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+li{
+    list-style: none;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+body{
+    width: 1920px;
+}
+
+#lecturewrap{
+    width: 1920px;
+    transform: translate(-10px, -10px);
+    height: 2500px;
+}
+
+
+
+/*강의배너*/
+#banner{
+    position: relative;
+    float: left;
+    width: 1920px;
+    height: 400px;
+}
+
+.bannerimg{
+    position: absolute;
+    z-index: 5;
+    width: 1920px;
+    height: 400px;
+    display: block;
+}
+
+.bannertitle{
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    color: white;
+    transform: translate(980px, 195px);
+}
+
+
+/*강의소개*/
+#lectureinfobox{
+    position: relative;
+    float: left;
+    /*width: 1200px;*/
+    margin-top: 30px;
+    margin-left: 360px;
+}
+.infoboximg{
+    position: absolute;
+    z-index: 5;
+}
+.infotitle{
+    position: absolute;
+    z-index: 15;
+    transform: translate(60px, 20px);
+    width: 170px;
+    font-size: 15px;
+}
+
+
+/*강의소개 첫번째 박스*/
+#lectureinfobox01{
+    width: 1120px;
+    height: 140px;
+    background-color: #F3F1F1;
+    border-radius: 20px;
+    position: relative;
+    z-index: 5;
+    margin-top: 60px;
+    margin-left: 25px;
+    padding: 20px;
+}
+
+.infobox01{
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    z-index: 10;
+    /*padding-top: 20px;*/
+}
+
+.infobox02{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 50px;
+}
+
+/*강의소개 두번째 박스*/
+#lectureinfobox02{
+    width: 1120px;
+    height: 140px;
+    background-color: #F3F1F1;
+    border-radius: 20px;
+    position: relative;
+    z-index: 5;
+    margin-top: 20px;
+    margin-left: 25px;
+    padding: 20px;
+}
+
+.infobox02-1{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    text-align: center;
+    line-height: 30px;
+    /*padding-top: 20px;*/
+}
+
+.infobox02-2{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 70px;
+
+}
+
+.infobox02-3{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 100px;
+}
+
+.infobox02-4{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 70px;
+    margin-left: 370px;
+}
+
+.infobox02-5{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 100px;
+    margin-left: 370px;
+}
+
+
+/*강사소개*/
+#lectureteacherbox{
+    position: relative;
+    float: left;
+    /*width: 1200px;*/
+    margin-top: 540px;
+    margin-left: -1185px;
+}
+.teacherboximg{
+    position: absolute;
+    z-index: 5;
+}
+.teachertitle{
+    position: absolute;
+    z-index: 15;
+    transform: translate(60px, 20px);
+    width: 170px;
+    font-size: 15px;
+}
+.teacherbox01{
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 60px;
+    margin-left: 40px;
+    /*padding-top: 20px;*/
+}
+
+.teacherbox02{
+    width: 600px;
+    height: 30px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 100px;
+    margin-left: 40px;
+}
+
+.teacherbox03{
+    width: 850px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 130px;
+    margin-left: 40px;
+}
+
+.teacherboxprofile{
+    position: absolute;
+    z-index: 10;
+    margin-top: 20px;
+    margin-left: 950px;
+}
+
+
+/*커리큘럼*/
+#curriculumbox{
+    position: relative;
+    float: left;
+    /*width: 1200px;*/
+    margin-top: 810px;
+    margin-left: -1185px;
+}
+.curriculumboximg{
+    position: absolute;
+    z-index: 5;
+}
+.curriculumtitle{
+    position: absolute;
+    z-index: 15;
+    transform: translate(60px, 20px);
+    width: 170px;
+    font-size: 15px;
+}
+
+.curriculumtable{
+    position: absolute;
+    z-index: 15;
+    width: 1150px;
+    height: 600px;
+    margin-top: 50px;
+    padding-left: 40px;
+}
+
+.ctitle{
+    font-weight: bold;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.cdata{
+    height: 40px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+
+/*리뷰*/
+#reviewbox{
+    position: relative;
+    float: left;
+    /*width: 1200px;*/
+    margin-top: 1550px;
+    margin-left: -1185px;
+}
+.reviewboximg{
+    position: absolute;
+    z-index: 5;
+}
+.reviewtitle{
+    position: absolute;
+    z-index: 15;
+    transform: translate(60px, 20px);
+    width: 170px;
+    font-size: 15px;
+}
+
+.reviewcontent01{
+    position: absolute;
+    z-index: 15;
+    margin-left: 80px;
+    margin-top: 90px;
+    width: 1000px;
+    height: 250px;
+    text-align: left;
+}
+
+.reviewerinfo01{
+    position: absolute;
+    z-index: 15;
+    margin-left: 80px;
+    margin-top: 200px;
+    width: 250px;
+    height: 30px;
+}
+
+.reviewcontent02{
+    position: absolute;
+    z-index: 15;
+    margin-left: 80px;
+    margin-top: 280px;
+    width: 1000px;
+    height: 200px;
+    text-align: right;
+}
+
+.reviewerinfo02{
+    position: absolute;
+    z-index: 15;
+    margin-left: 860px;
+    margin-top: 370px;
+    width: 250px;
+    height: 30px;
+}
+.quickmenu {position:absolute;width:90px;top:20%;margin-top:-50px;right:10px;background:#fff;}
+.quickmenu ul {position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
+.quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline-block;*display:inline;}
+.quickmenu ul li a {position:relative;float:left;width:100%;height:30px;line-height:30px;text-align:center;color:#999;font-size:9.5pt;}
+.quickmenu ul li a:hover {color:#000;}
+.quickmenu ul li:last-child {border-bottom:0;}
+
+.content {position:relative;min-height:1000px;}
+
+#lecturepayment{
+    position: absolute;
+    z-index: 100;
+    width: 225px;
+    height: 350px;
+    transform: translate(1300px, 500px);
+    background-color: white;
+    border: 1px solid #000;
+    font-size: 13px;
+}
+
+#starbox{
+    position: relative;
+    float: left;
+    /*width: 1200px;*/
+    margin-top: 2050px;
+    margin-left: -1185px;
+    width: 850px;
+    height: 50px;
+    border: 1px solid #8E8D8D;
+    border-radius: 20px;
+    padding-left: 350px;
+    /*padding-top: 10px;*/
+    line-height: 50px;
+}
+
+.startitle{
+    float: left;
+}
+
+#rating{
+    float: left;
+}
+
+.sreview{
+    float: left;
+}
+
+.selectstar{
+    margin-top: 15px;
+}
+
+.sreview{
+    margin-top: 15px;
+    width: 200px;
+}

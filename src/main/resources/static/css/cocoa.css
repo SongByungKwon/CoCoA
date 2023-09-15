@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+}
+
+li{
+    list-style: none;
+}
+
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#title{
+    text-align: center;
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+#main{
+    background-color: #494747;
+    width: 900px;
+    height: 1800px;
+}
+
+#main>#s1>ul>li{
+    width: 900px;
+    height: 200px;
+    float: left;
+}
+#main>#s1>ul>li>img{
+    margin: 50px 40px 50px 80px;
+    float: left;
+
+}
+#main>#s1>ul>li>h3 {
+    padding-top: 75px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+#main>#s3 {
+    text-align: center;
+}
+
+#main>#s3>label {
+    display: block;
+    margin: 50px;
+}
+#main>#s3>button {
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+}
+
+/*메뉴선택했을 때 색깔 바껴야함 안됨 ㅋ*/
+#cocoabox:focus{
+    background-color: #A47C6D;
+}
+
+.inputtext{
+    background-color: #494747;
+    color: white;
+    border: none;
+}

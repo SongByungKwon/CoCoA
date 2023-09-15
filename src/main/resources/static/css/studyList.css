@@ -1,0 +1,66 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    margin: 0 auto;
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+#content{
+    width: 1200px;
+}
+li{
+    list-style: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+nav{
+    margin-top: 65px;
+    width: 900px;
+    height: 50px;
+}
+nav .studyListul>li{
+    margin-top: 20px;
+    float: left;
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+    margin-right: -1px;
+}
+
+nav .studyImgListul>li{
+    float: left;
+    margin: 20px 10px 30px 0px;
+}
+nav .studyImgListul>li:last-child{
+    margin-right: 0;
+}
+
+nav .studyIndexul >li{
+    float: left;
+    width: 293px;
+    height: 150px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+nav .studyIndexul >li:last-child{
+    margin-right: 0;
+}

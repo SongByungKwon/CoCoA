@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원목록</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+</head>
+<body>
+<div class="logoImg">
+    <a href="/managerHome"><img src="/img/logo.png" alt="logo"></a>
+</div>
+<div class="container">
+    <h2>코코아 회원목록</h2>
+<table class="board_list">
+    <colgroup>
+        <col width="15%"/>
+        <col width="20%">
+        <col width="20%"/>
+        <col width="15%"/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col">회원 이름</th>
+        <th scope="col">회원 이메일</th>
+        <th scope="col">회원 휴대번호</th>
+        <th scope="col">회원 직업</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="flist : ${flist}">
+        <td th:text="${flist.f_name}"></td>
+        <td th:text="${flist.f_email}"></td>
+        <td th:text="${flist.f_phone}"></td>
+        <td th:text="${flist.f_job}"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

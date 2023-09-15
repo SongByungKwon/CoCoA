@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cocoa.mapper.CsBoardMapper">
+
+    <select id="selectBoardList" resultType="com.cocoa.dto.CsBoardDto">
+        SELECT
+            cs_board_idx,
+            cs_title,
+            cs_hit_cnt,
+            cs_creator_id,
+            TO_CHAR(cs_created_datetime, 'YYYY.MM.DD HH24:MI:SS') AS cs_created_datetime
+        FROM
+            csboard
+        WHERE
+            cs_deleted_yn = 'N'
+        ORDER BY
+            cs_board_idx
+    </select>
+
+    <insert id="insertBoard" parameterType="com.cocoa.dto.CsBoardDto">
+        insert into csboard (
+            cs_board_idx,
+            cs_title,
+            cs_contents,
+            cs_creator_id,
+            cs_password,
+            cs_email
+            )
+            values (
+                board_seq.nextval,
+                #{cs_title},
+                #{cs_contents},
+                #{cs_creator_id},
+                #{cs_password},
+                #{cs_email}
+            )
+    </insert>
+
+    <update id="updateHitCount" parameterType="int">
+        update csboard
+        set cs_hit_cnt = cs_hit_cnt + 1
+        where cs_board_idx = #{cs_board_idx}
+    </update>
+
+    <select id="selectCsBoardDetail" parameterType="int" resultType="com.cocoa.dto.CsBoardDto">
+        SELECT
+            cs_board_idx,
+            cs_title,
+            cs_contents,
+            cs_hit_cnt,
+            TO_CHAR(cs_created_datetime, 'YYYY.MM.DD HH24:MI:SS') AS cs_created_datetime,
+            cs_creator_id,
+            cs_email
+        FROM
+            csboard
+        where
+            cs_board_idx = #{cs_board_idx} AND cs_deleted_yn = 'N'
+    </select>
+    
+    <update id="updateBoard" parameterType="com.cocoa.dto.CsBoardDto">
+        <![CDATA[
+        UPDATE CSBOARD
+        SET cs_title = #{cs_title},
+            cs_contents = #{cs_contents},
+            cs_updated_datetime = CURRENT_TIMESTAMP
+        WHERE cs_board_idx = #{cs_board_idx}
+        ]]>
+    </update>
+
+
+    <update id="deleteBoard" parameterType="int">
+        UPDATE CSBOARD
+        SET cs_deleted_yn = 'Y',
+            cs_updated_datetime = CURRENT_TIMESTAMP
+        WHERE cs_board_idx = #{cs_board_idx}
+    </update>
+
+<!--    <delete id="deleteBoard" parameterType="int">-->
+<!--        delete from csboard-->
+<!--        WHERE cs_board_idx = #{cs_board_idx}-->
+<!--    </delete>-->
+
+
+
+    <select id="csboardpwdcheck" parameterType="com.cocoa.dto.CsBoardDto" resultType="com.cocoa.dto.CsBoardDto">
+        SELECT cs_board_idx,
+               cs_title,
+               cs_contents,
+               cs_hit_cnt,
+               TO_CHAR(cs_created_datetime, 'YYYY.MM.DD HH24:MI:SS') AS cs_created_datetime,
+               cs_creator_id,
+               cs_email
+        from
+            (SELECT *
+             from csboard
+             WHERE cs_password = #{cs_password})
+        WHERE cs_board_idx = #{cs_board_idx} AND cs_deleted_yn = 'N'
+    </select>
+
+
+
+    <insert id="insertReply" parameterType="com.cocoa.dto.ReplyDTO">
+        insert into adminreply (ar_seq, ar_idx, ar_email, ar_writer, ar_content, ar_created_datetime)
+        values (adminreply_seq.nextval, #{ar_idx}, #{ar_email}, '댓글작성자', #{ar_content}, #{ar_created_datetime})
+    </insert>
+
+    <select id="getReplyList" resultType="com.cocoa.dto.ReplyDTO">
+        select * from adminreply
+        where ar_idx = #{ar_idx}
+    </select>
+
+</mapper>

@@ -1,0 +1,223 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+.clearfix::after, .clearfix::before {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body{
+    width: 1920px;
+}
+
+#header1 {
+    width: 1200px;
+    height: 200px;
+    position: relative;
+    border-bottom: #A47C6D 1px solid;
+}
+
+/*.loginLogoImg{*/
+/*    text-align: center;*/
+/*}*/
+
+.logo {
+    display: block;
+    width: 975px;
+    float: left;
+    padding-left: 150px;
+    /*margin-left: 22.5px; !*Ãß°¡*!*/
+}
+
+.sighOut {
+    position: absolute;
+    float: right;
+    background-color: #A47C6D;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    width: 75px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+    top: 20px;
+    right: 25px;
+    z-index: 5;
+    text-align: center;
+}
+
+#header1 > ul {
+    float: right;
+    position: absolute;
+    bottom: 35px;
+    right: 45px;
+}
+
+#header1 > ul > li {
+    float: left;
+}
+
+.menuBox {
+    width: 150px;
+    height: 50px;
+    float: left;
+    border: 1px solid;
+    line-height: 50px;
+    text-align: center;
+    color: #A47C6D;
+    cursor: pointer;
+    position: relative;
+}
+
+.menuBox:hover {
+    background-color: #A47C6D;
+    color: #fff;
+    text-decoration: #D8B8C5 1px solid;
+}
+
+
+.submenu {
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    display: none;
+}
+
+.submenuBox {
+    width: 150px;
+    height: 50px;
+    border: 1px solid;
+    line-height: 50px;
+    text-align: center;
+    color: #A47C6D;
+    cursor: pointer;
+    left: 150px;
+    z-index: 3;
+}
+
+.submenuBox:hover {
+    background-color: #C89265;
+    color: #ffffff;
+}
+
+
+#header2 {
+    width: 1200px;
+    height: 250px;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+
+.reading{
+    width: 60px;
+    height: 60px;
+    float: left;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+/*
+*/
+
+#headerMoll{
+    width: 300px;
+    height: 250px;
+    float: left;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#box0{
+    width: 300px;
+    height: 50px;
+    border:1px solid;
+    text-align: center;
+    float: left;
+}
+
+#TextS{
+    margin-top: 5px;
+}
+#KaKao{
+    width: 200px;
+    margin-top: 10px;
+    display: flex;
+
+
+}
+
+#headerLeft{
+    width: 150px;
+    height: 200px;
+    float: left;
+}
+
+#headerLeft>div:hover{
+    text-decoration: underline #59473F;
+}
+
+#search{
+    width: 270px;
+    height: 35px;
+    font-size: 14px;
+    background:url("../img/sebutton.png") no-repeat right;
+}
+.centerS{
+
+    width: 1200px;
+    height: 250px;
+    float: left;
+    text-align: center;
+}
+.cocoa{
+    margin-top: 65px;
+    color: #59473F;
+    font-size: 32px;
+
+}
+.marginT20{
+    margin-top: 20px;
+}
+.centerSe{
+
+    width: 600px;
+    height: 60px;
+    /*background: url("../img/sebuttonBig.png") no-repeat right;*/
+    font-size: 20px;
+    margin-left: 70px;
+}
+

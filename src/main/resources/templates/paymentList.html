@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <title>코코아 결제내역</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<link rel="stylesheet" href="/css/paymentList.css">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<body>
+<th:block th:if="${session.user ==null}">
+    <script>
+        alert("로그인 부탁드립니다.");
+        window.location.href = '/'
+    </script>
+</th:block>
+<th:block th:if="${session.user != null}">
+    <div th:replace="/include/myPageHeader.html"></div>
+</th:block>
+<div id="wrap" class="clearfix">
+    <div id="highBanner"><b th:text="${session.user1}"></b>님의 성장을 응원합니다.</div>
+    <nav id="nav">
+        <ul>
+            <li class="subnav"><a href="/myPage">마이페이지</a></li>
+            <li><a href="/personal">개인정보 수정</a></li>
+            <li class="subnav">학습관리</li>
+            <li><a href="/myLecture">내 강의</a></li>
+            <li><a href="/good">좋아요 표시한 강의</a></li>
+            <li><a href="/cart">장바구니</a></li>
+            <li><a href="/paymentList" style="font-weight: bold;">결제 내역</a></li>
+        </ul>
+    </nav>
+    <section id="content" class="con clearfix">
+        <div>결제 내역</div>
+        <table class="payList">
+            <thead>
+            <tr>
+                <td>구매상품</td>
+                <td>결제일</td>
+                <td>금액</td>
+                <td>취소/환불</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="paymentlistMypage : ${paymentlistMypage}">
+                <td th:text="${paymentlistMypage.L_TITLE}"></td>
+                <td th:text="${paymentlistMypage.P_PAYDATE}"></td>
+                <td th:text="${paymentlistMypage.L_COST}"></td>
+                <td><a href="#" onclick="refund()">취소(환불) 요청</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="refundLabel">환불 내역</div>
+        <table class="refundList">
+            <thead>
+            <tr>
+                <td>환불상품</td>
+                <td>환불일</td>
+                <td>환불액</td>
+                <td>상태(진행/접수/완료)</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="4">현재 진행 중인 환불내역은 없습니다.</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+</div>
+<div th:replace="/include/footer.html"></div>
+</body>
+<script>
+    function refund(){
+
+        swal ( "환불 중" ,  "최대 7일 이내에 환불 예정입니다." ,  "success" )
+
+    }
+</script>
+
+</html>

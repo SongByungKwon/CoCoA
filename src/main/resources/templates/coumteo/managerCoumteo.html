@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coumteo</title>
+    <link rel="stylesheet" href="/css/coumteo.css">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/managerLogin.css">
+</head>
+<body>
+
+
+
+<div id="wrap" class="clearfix">
+    <div class="logosize">
+    <a href="/managerHome"><img src="/img/logo.png"   alt="로고이미지"></a>
+    </div>
+    <div class="longbox"><b>관리자님 환영합니다.</b></div>
+
+    <div class="btnsize">
+    <a href="managerCoumteo/insertCoumteo" class="btn">글 쓰기</a>
+    </div>
+
+    <table class="board_list">
+        <colgroup>
+            <col width="15%"/>
+            <col width="*"/>
+            <col width="15%"/>
+            <col width="25%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">문제</th>
+            <th scope="col">문제 제목</th>
+            <th scope="col">문제 종류</th>
+            <th scope="col">작성일</th>
+
+        </tr>
+        </thead>
+        <tbody >
+        <tr th:each="list : ${list}">
+
+            <td id="Q_question" th:text="${list.Q_question}"></td>
+
+
+            <td class="title">
+                <a href="/managercoumteoBoard?Q_question="
+                   th:attrappend="href=${list.Q_question}"
+                   th:text="${list.Q_questionTitle}"></a></td>
+
+
+
+
+
+            <td th:text="${list.Q_questionKind}" id="cs_creator_id"></td>
+            <td th:text="${list.Q_questionDateTime}"></td>
+
+            </form>
+        </tr>
+    </table>
+</div>
+
+<div class="longbox"></div>
+
+</body>
+</html>
+
+

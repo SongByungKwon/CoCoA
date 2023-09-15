@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/lecturealert.css}">
+</head>
+<style>
+
+</style>
+<body>
+
+<th:block id="suNp">
+    <p class="boxtitle"><span th:text="${session.user}"></span> 코코아님♡</p>
+    <form id="sufrmNp" action="/insertCart" method="post">
+        <input class="boxbtn" type="submit" onclick="addCart()" value="수강신청하기">
+        <input type="hidden" name="c_femail" th:value="${session.user}">
+        <input type="hidden" name="l_code" th:value="${lecture.lf_code}">
+        <div class="boxinfo" th:each="lbox : ${lbox}">
+            <th:block class="boxgood" th:with="liked=false">
+                <th:block th:each="g : ${good}">
+                    <th:block th:if="${g.g_code == lecture.lf_code}">
+                        <th:block th:remove="tag">
+                            <th:block th:with="liked=true"></th:block>
+                        </th:block>
+                    </th:block>
+                </th:block>
+                <a href="#" th:attr="data-g_code=${lecture.lf_code}, data-lf_code=${lecture.lf_code}" th:if="!${liked}"
+                   th:onclick="'javascript:addLike(this);'">좋아요 ♡</a>
+                <a href="#" th:attr="data-g_code=${lecture.lf_code}, data-lf_code=${lecture.lf_code}" th:if="${liked}"
+                   th:onclick="'javascript:removeLike(this);'">좋아요 ♥</a>
+            </th:block>
+            <p class="boxcost"> - 가격 : <span th:text="${lbox.l_cost}"></span> 원</p>
+            <p class="boxteacher"> - 선생님 이름 : <span th:text="${lbox.l_teacher}"></span></p>
+            <p class="boxtime"> - 강의 시간 : <span th:text="${lbox.l_time}"></span></p>
+            <p class="boxdoc"> - 수료증 : 발급</p>
+            <p class="boxdif"> - 난이도 : <span th:text="${lbox.l_difficulty}"></span></p>
+            <span  class="boxtag" th:text="${lbox.l_tag}"></span>
+        </div>
+    </form>
+
+</th:block>
+</body>
+
+<script>
+    function addLike(button) {
+        let g_code = button.getAttribute('data-g_code');
+        let lf_code = button.getAttribute('data-lf_code');
+
+        // AJAX 호출로 서버에 좋아요 추가 요청을 보냄
+        $.ajax({
+            url: '/insertGood',
+            type: 'POST',
+            data: {g_code: g_code, lf_code: lf_code},
+            success: function () {
+                // 좋아요 추가 성공 시 화면 업데이트
+                // 예를 들어, 좋아요 아이콘을 변경하거나 다른 작업을 수행할 수 있음
+                $(button).html('좋아요 ♥');
+            }
+        });
+    }
+
+
+    function removeLike(button) {
+        let g_code = button.getAttribute('data-g_code');
+        let lf_code = button.getAttribute('data-lf_code');
+
+        // AJAX 호출로 서버에 좋아요 제거 요청을 보냄
+        $.ajax({
+            url: '/deleteGood',
+            type: 'POST',
+            data: {g_code: g_code, lf_code: lf_code},
+            success: function () {
+                // 좋아요 제거 성공 시 화면 업데이트
+                // 예를 들어, 좋아요 아이콘을 변경하거나 다른 작업을 수행할 수 있음
+                $(button).html('좋아요 ♡');
+            }
+        });
+    }
+</script>
+
+</html>
+

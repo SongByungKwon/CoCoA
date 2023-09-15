@@ -1,0 +1,100 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+#suNp{
+    position: absolute;
+    z-index: 9990;
+    width: 225px;
+    height: 350px;
+    transform: translate(1300px, 525px);
+    /*border: 1px solid #000;*/
+    /*background-color: white;*/
+
+}
+
+.boxbtn{
+    width: 205px;
+    margin-left: 10px;
+    height: 30px;
+    background-color: #7D4840;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.boxinfo{
+    margin-left: 10px;
+}
+
+.boxgood{
+    margin-bottom: 15px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+
+.boxcost{
+    margin-bottom: 15px;
+}
+
+.boxteacher{
+    margin-bottom: 15px;
+}
+
+.boxtime{
+    margin-bottom: 15px;
+}
+
+.boxdoc{
+    margin-bottom: 15px;
+}
+
+.boxdif{
+    margin-bottom: 15px;
+}
+
+ #sup{
+     position: absolute;
+     z-index: 9990;
+     width: 225px;
+     height: 350px;
+     transform: translate(1300px, 525px);
+     /*border: 1px solid #000;*/
+     /*background-color: white;*/
+ }
+
+ #nonsu{
+     position: absolute;
+     z-index: 9990;
+     width: 225px;
+     height: 350px;
+     transform: translate(1300px, 525px);
+     /*border: 1px solid #000;*/
+     /*background-color: white;*/
+ }
+
+.boxtitle{
+    font-size: 15px;
+    text-align: left;
+    color: #7D4840;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+ }
+
+#supbox{
+    position: absolute;
+    z-index: 9999;
+    width: 225px;
+    height: 350px;
+    transform: translate(1300px, 525px);
+}

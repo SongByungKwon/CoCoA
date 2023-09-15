@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/img/favicon.png">
+    <meta charset="UTF-8">
+    <title>CoCoA</title>
+    <link rel="stylesheet" href="/css/eventPopUp.css">
+</head>
+<body>
+<div id="wrap">
+
+
+        <div th:replace="/include/header.html"></div>
+
+    <div th:replace="/include/BannerSilde.html"></div>
+    <div th:replace="/include/contents.html"></div>
+    <div th:replace="/include/reviewContent.html"></div>
+    <div th:replace="/recruit/recruitlistjson.html"></div>
+
+    <div th:replace="/include/footer.html"></div>
+</div>
+
+
+
+<div id="layer" class="clearfix">
+    <img src="/img/logo.png" alt="로고" class="layerLogoImg"><br>
+    <p class="layerText">
+        <em class="layerTitle">코코아 서포터즈(코터즈) 모집</em><br><br>
+        <span class="desc">열정 가득한 코코아와 함께 성장할<br>
+            서포터즈를 모집합니다.<br><br>
+            하단 양식을 다운받아 이메일로 발송 바랍니다.
+            <br>많은 지원바랍니다.<br><br>
+            email:cosongE@team.cocoa
+            <br><br>감사합니다.
+            </span>
+    </p>
+
+    <a href="#" class="download">다운로드</a>
+    <a href="#" class="close">닫기</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+    //다운로드
+
+    $(document).ready(function () {
+        $(".download").click(function (e) {
+            e.preventDefault(); //기본 링크 동작 막기
+
+            //파일 다운로드 경로
+            let fileUrl = "/download/코코아 서포터즈(코터즈) 모집공고.hwpx"
+
+            //다운로드
+            let link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = '코코아 서포터즈(코터즈) 모집공고.hwp';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    });
+
+
+    //닫기
+    $(".close").click(function () {
+        $("#layer").fadeOut(500)
+    });
+</script>
+
+</body>
+</html>

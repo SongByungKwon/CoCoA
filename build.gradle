@@ -1,0 +1,46 @@
+plugins {
+    id 'war'
+    id 'java'
+    id 'org.springframework.boot' version '2.7.14'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+//group = '2ndProj'
+group = 'com.cocoa'
+version = '0.0.1-SNAPSHOT'
+apply plugin: 'war'
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation group: 'com.oracle.database.jdbc', name: 'ojdbc11', version: '21.11.0.0'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'//제이슨 추가한 라이브러리
+
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '2.7.9'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

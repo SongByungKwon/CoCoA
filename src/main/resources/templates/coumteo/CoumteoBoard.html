@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coumteo</title>
+</head>
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" type="text/css" th:href="@{/css/csboard.css}">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<link rel="stylesheet" href="/css/CoumteoBoard.css">
+<body>
+<div id="wrap" class="clearfix">
+
+<!--    <th:block th:if="${session.user != null}">-->
+        <div th:replace="/include/myPageHeader.html"></div>
+<!--    </th:block>-->
+<div style="width: 1200px; margin: 0 auto">
+
+<form id="frm" method="post">
+
+    <table class="board_detail">
+        <colgroup>
+
+            <col style="width:15%"/>
+            <col style="width:35%"/>
+            <col style="width:15%"/>
+            <col style="width:35%"/>
+
+        </colgroup>
+        <div>
+        <h1 th:text="${board.Q_questionTitle}"></h1>
+            <a href="/Coumteo" id="list"><img src="/img/list_icon.png"></a>
+        </div>
+        <div id="dataTime">
+            <h4>작성일</h4>
+            <h4 th:text="${board.Q_questionDateTime}"> </h4>
+        </div>
+        <div class="CoumteoBoardBox2">
+            <h4>문제</h4>
+            <h4 th:text="${board.Q_questionContents} " class="h4Text"> </h4>
+
+        </div>
+
+        <div class="CoumteoBoardBox">
+            <h4>입력</h4>
+            <h4 th:text="${board.Q_questionIn}"class="h4Text"> </h4>
+        </div>
+
+        <div class="CoumteoBoardBox" style="border-right: #000000 1px solid">
+            <h4>출력</h4>
+            <h4 th:text="${board.Q_questionOut}" class="h4Text"> </h4>
+        </div>
+
+        <div class="CoumteoBoardBox3">
+            <h4>출처</h4>
+            <h4 th:text="${board.Q_questionLink}"class="h4Text"> </h4>
+        </div>
+
+
+        <div class="CoumteoBoardBox3">
+            <h4>답지</h4>
+<!--            <a href="/file/Test.hwp" class="trueDownload" download>답지</a>-->
+            <a th:href="${board.Q_questionDATA}" class="trueDownload h4Text" download>답지</a>
+        </div>
+
+    </table>
+</form>
+</div>
+    <div th:replace="/include/footer.html"></div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<link rel="stylesheet" href="/css/personalData.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="icon" href="/img/favicon.png">
+</head>
+
+<body>
+<th:block th:if="${session.user ==null}">
+    <script>
+        alert("로그인 부탁드립니다.");
+        window.location.href='/'
+    </script>
+</th:block>
+<th:block th:if="${session.user != null}">
+    <div th:replace="/include/myPageHeader.html"></div>
+</th:block>
+<div id="wrap" class="clearfix">
+    <div id="highBanner"><b th:text="${session.user1}"></b>님의 성장을 응원합니다.</div>
+    <nav id="nav">
+        <ul>
+            <li class="subnav"><a href="/myPage">마이페이지</a></li>
+            <li><a href="/personal" style="font-weight: bold;">개인정보 수정</a></li>
+            <li class="subnav">학습관리</li>
+            <li><a href="/myLecture">내 강의</a></li>
+            <li><a href="/good">좋아요 표시한 강의</a></li>
+            <li><a href="/cart">장바구니</a></li>
+            <li><a href="/paymentList">결제 내역</a></li>
+        </ul>
+    </nav>
+    <section id="content" class="clearfix">
+        <b>개인정보 수정</b><br><br><br>
+        <div class="changeBox">
+            <form method="POST" action="/rePwd" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td class="fixMes">이름</td>
+                        <td class="chaMes" th:text="${session.user1}"></td>
+                    </tr>
+                    <tr>
+                        <td class="fixMes">이메일</td>
+                        <td class="chaMes" th:text="${session.user}"></td>
+                    </tr>
+                    <tr>
+                        <td class="fixMes">비밀번호 재설정</td>
+                        <td class="chaMes"><input id="fPassword" name=fPassword type="password">
+                            ※ 비밀번호 변경을 원하는 경우에만 입력해주세요.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fixMes">비밀번호 재확인</td>
+                        <td class="chaMes"><input id="fPasswordck" name=fPasswordck type="password"></td>
+                    </tr>
+                    <tr>
+                        <td class="fixMes">연락처</td>
+                        <td class="chaMes"><input id="tel" name="tel" type="tel"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="확인" class="firstA" id="inputButton">
+            </form>
+            <form method="POST" action="/delete">
+                <div class="fc"> <input type="submit" value="회원탈퇴" class="firstA" id="deleteButton" onsubmit="return deleteForm()"> ※탈퇴 버튼을 누를 시 회원정보를 절대 다시 복구할 수 없습니다.
+                </div></form>
+        </div>
+    </section>
+</div>
+<div th:replace="/include/footer.html"></div>
+
+<script>
+    function validateForm() {
+        let fPassword = document.getElementById("fPassword").value;
+        let fPasswordck = document.getElementById("fPasswordck").value;
+        let tel = document.getElementById("tel").value;
+
+        if (fPassword === "" || fPasswordck === "") {
+            swal ( "비밀번호" ,  "비밀번호를 입력해주세요." ,  "error" )
+            return false;
+        } else if (fPassword !== fPasswordck) {
+            swal ( "재입력 비밀번호" ,  "재입력 비밀번호를 입력해주세요." ,  "error" )
+            return false;
+        }
+
+        return true;
+    }
+
+    // "회원탈퇴" 버튼 클릭 시 회원 탈퇴 처리
+    document.getElementById("deleteButton").addEventListener("click", function () {
+        if (confirm("회원 탈퇴 시 절대 복구할 수 없습니다.")) {
+
+        }
+    });
+</script>
+</body>
+
+</html>

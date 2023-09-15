@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>studyMP4</title>
+    <link rel="icon" href="/img/favicon.png">
+
+    <link rel="stylesheet" href="/css/loginHeader.css">
+    <link rel="stylesheet" href="/css/studyMP4.css">
+    <link rel="stylesheet" href="/css/fStyle.css">
+
+</head>
+<body>
+<div id="wrap" class="clearfix">
+<!--  헤더는 중간에 바꿔주세요  -->
+<!--    <th:block th:if="${session.user ==null}">-->
+<!--        <div th:replace="/include/studyHeader.html"></div>-->
+<!--    </th:block>-->
+<!--    <th:block th:if="${session.user != null}">-->
+        <div th:replace="/include/myPageHeader.html"></div>
+<!--    </th:block>-->
+<!--    헤더는 중간에 바꿔주세요-->
+    <div class="longbox"><b th:text="${session.user1}"></b>님의 성장을 응원합니다.</div>
+    <div class="MP4button">
+        <a href="/myLecture">
+            <button>목록보기</button>
+        </a>
+    </div>
+    <div id="MP4Size">
+
+
+        <h1 class="MP4text">Android - 안드로이드 앱 만들기</h1>
+
+
+<video  controls width="1200px" height="600px">
+    <source src="/mp4/cocoaTest.mp4" type="video/webm" />
+</video>
+
+    </div><!--MP4Size -->
+
+
+
+
+
+
+
+
+
+    <div class="longbox"></div>
+    <div th:replace="/include/footer.html"></div>
+
+</div>
+
+
+</body>
+</html>

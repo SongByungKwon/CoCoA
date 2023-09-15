@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/loginHeader.css">
+<link rel="stylesheet" href="/css/good.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <title>코코아(Coding course Academy)</title>
+</head>
+<body>
+
+<th:block th:if="${session.user ==null}">
+    <script>
+        alert("로그인 부탁드립니다.");
+        window.location.href = '/'
+    </script>
+</th:block>
+<th:block th:if="${session.user != null}">
+    <div th:replace="/include/myPageHeader.html"></div>
+</th:block>
+
+<div id="wrap" class="clearfix">
+    <div id="highBanner"><b th:text="${session.user1}"></b>님의 성장을 응원합니다.</div>
+    <nav id="nav">
+        <ul>
+            <li class="subnav"><a href="/myPage">마이페이지</a></li>
+            <li><a href="/personal">개인정보 수정</a></li>
+            <li class="subnav">학습관리</li>
+            <li><a href="/myLecture">내 강의</a></li>
+            <li><a href="/good" style="font-weight: bold;">좋아요 표시한 강의</a></li>
+            <li><a href="/cart">장바구니</a></li>
+            <li><a href="/paymentList">결제 내역</a></li>
+        </ul>
+    </nav>
+    <section id="content" class="con clearfix">
+        <b>좋아요 표시한 강의</b>
+        <a href="javascript:void(0)" class="abutton" onclick="good.delCheckedItem();">선택상품 삭제</a>
+        <input type="hidden" name="fEmail" th:value="${session.user}">
+        <div id="good" class="gooddiv">
+            <th:block th:if="${goodList.size() > 0 }">
+                <th:block th:each="item : ${goodList}">
+                    <div class="check">
+                        <input type="checkbox" name="good" th:value="${item.G_PK}" checked="" onclick="good.checkItem();">
+                        <div class="goodImg clearfix">
+                            <img th:src="${item.LIMAGE}" alt="강의 이미지" width="265px" height="185px"/>
+                        </div>
+                        <div class="gname">
+                            <span th:text="${item.LTITLE}"></span>
+                        </div>
+                    </div>
+                </th:block>
+            </th:block>
+        </div>
+    </section>
+</div>
+<div th:replace="/include/footer.html"></div>
+<script type="text/javascript" src="/js/good.js"></script>
+</body>
+
+</html>

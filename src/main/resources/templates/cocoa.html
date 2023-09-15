@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="/img/favicon.png">
+    <meta charset="UTF-8">
+    <title>CoCoA</title>
+    <link rel="stylesheet" href="/css/cocoaMenu.css">
+    <link rel="stylesheet" href="/css/cocoa.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><!--alert창 꾸미는거-->
+</head>
+
+<body>
+<div id="wrap">
+
+    <th:block th:if="${session.user ==null}">
+    <div th:replace="/include/cocoaHeader.html"></div>
+    </th:block>
+    <th:block th:if="${session.user != null}">
+        <div th:replace="/include/loginCocoaHeader.html"></div>
+    </th:block>
+</div>
+
+<div id="title">
+<h1>CODING COS ACADEMY<br>-</h1>
+<h4>우리의 교육은 여러분의 뚜렷한 목표와 확실한 자신감을 이끌어내는 것에서 출발합니다.</h4>
+</div>
+<div id="main">
+    <div id="s1">
+        <ul class="clearfix">
+            <li>
+                <img src="/img/cocoa/s1.png">
+                <h3>기술적 의사결정을 합니다.</h3>
+            </li>
+            <li>
+                <img src="/img/cocoa/s2.png">
+                <h3>문제점을 찾는 훈련을 통해<br>여러 상황에 대처합니다.</h3>
+            </li>
+            <li>
+                <img src="/img/cocoa/s3.png">
+                <h3>개발 커뮤니티 (콩부방, 코움터)를<br>통해 개발자와 소통합니다.</h3>
+            </li>
+        </ul>
+    </div>
+    <div id="s2">
+
+
+
+
+        <iframe width="900" height="600" src="https://www.youtube.com/embed/KhptxxfMQ_Q?si=-0TwoAY0TqJK2qq0"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                 encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+
+
+    </div>
+    <div id="s3">
+        <table id="table" style="border: 1px solid; border-collapse: collapse; width: 330px; height: 200px; color: white; margin: auto">
+            <caption style="color: white; font-size: 25px; margin-top: 50px; margin-bottom: 20px; align-items: center">간편 상담 / 수강료 문의</caption>
+            <tr style="border: solid 1px;">
+                <th style="border: solid 1px;">이름</th>
+                <td style="border: solid 1px;">
+                    <input class="inputtext" type="text" name="name" size="20" style="width: 100%;">
+                </td>
+            </tr>
+            <tr style="border: solid 1px;">
+                <th style="border: solid 1px;">연락처</th>
+                <td style="border: solid 1px;">
+                    <input id="phone" class="inputtext" type="text" name="name" size="20" style="width: 100%;">
+                </td>
+            </tr>
+            <tr style="border: solid 1px;">
+                <th style="border: solid 1px;">문의사항</th>
+                <td style="border: solid 1px;">
+                    <input class="inputtext" type="text" name="name" size="20" style="width: 100%;">
+                </td>
+            </tr>
+        </table>
+        <label style="color: white; margin-top: 20px"><input id="agree" type="checkbox" name="check" value="yyy"> 개인정보 수집 및 이용에 관한 사항에 동의</label>
+        <button type="button" onclick="submitForm()">상담 신청하기</button>
+    </div>
+</div>
+<div th:replace="/include/footer.html"></div>
+
+
+</body>
+<script>
+    function submitForm() {
+        let checkBox = document.getElementById("agree");
+        let phoneInput = document.getElementById("phone");
+
+        if (!checkBox.checked) {
+            swal ( "체크해주세요" ,  "개인정보 수집 및 이용에 동의해야 합니다." ,  "error" )
+        } else if (phoneInput.value.trim() === '') {
+            swal ( "전화번호" ,  "전화번호는 필수 입력 칸입니다." ,  "error" )
+        } else {
+            swal ("접수 완료","상담 접수가 완료되었습니다." ,  "success" )
+        }
+    }
+
+</script>
+</html>

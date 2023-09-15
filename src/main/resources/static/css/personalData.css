@@ -1,0 +1,129 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+.clearfix::after, .clearfix::before{
+    content: "";
+    display: block;
+    clear: both;
+}
+li{
+    list-style: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+
+#wrap{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#highBanner{
+    margin-top: 50px;
+    background-color: #A47C6D;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#nav{
+    float: left;
+    margin-left: 18px;
+    width: 232px;
+    height: 1030px;
+}
+
+#nav .subnav{
+    margin-top: 15px;
+    color: #59473F;
+    font-weight: bold;
+    height: 71px;
+    line-height: 71px;
+}
+
+#nav >ul >li{
+    height: 71px;
+    line-height: 71px;
+    font-weight: normal;
+}
+
+#nav >ul >li:hover{
+    font-weight: bold;
+}
+
+#content{
+    border-left: #A47C6D 1px solid;
+    float: right;
+    width: 950px;
+    height: 950px;
+    padding: 56px 0 0 50px;
+}
+
+b{
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.changeBox{
+    width: 858px;
+    height: 515px;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+table{
+    width: 858px;
+    height: 443px;
+}
+
+.fixMes{
+    text-align: center;
+    font-size: 15px;
+    width: 189px;
+    height: 88px;
+}
+
+.chaMes{
+    font-size: 15px;
+}
+
+.firstA{
+    background-color: #A47C6D;
+    color: white;
+    font-size: 13px;
+    width: 88px;
+    height: 24px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    line-height: 24px;
+    float: left;
+    margin-right: 15px;
+}
+
+#inputButton{
+    margin-left: 150px;
+}
+
+#deleteButton{
+    color: #ff4f4f;
+
+}
+
+.fc{
+    color: red;
+}

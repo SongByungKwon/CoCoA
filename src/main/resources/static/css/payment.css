@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+#wrap{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#highBanner{
+    margin-top: 50px;
+    background-color: #A47C6D;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#nav{
+    float: left;
+    margin-left: 18px;
+    width: 232px;
+    height: 1030px;
+}
+
+#nav .subnav{
+    margin-top: 15px;
+    color: #59473F;
+    font-weight: bold;
+    height: 71px;
+    line-height: 71px;
+}
+
+#nav >ul >li{
+    height: 71px;
+    line-height: 71px;
+    font-weight: normal;
+}
+
+#nav >ul >li:hover{
+    font-weight: bold;
+}
+
+#content{
+    border-left: #A47C6D 1px solid;
+    float: right;
+    width: 950px;
+    height: 1030px;
+    padding: 56px 0 0 50px;
+}
+
+.payListLabel{
+    background-color: #A47C6D;
+    border-radius: 3px;
+    width: 141px;
+    height: 53px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 53px;
+    float: left;
+    margin-bottom: 3px;
+}
+.payList{
+    width: 898px;
+    margin-bottom: 106px;
+    text-align: center;
+    border: 1px black solid;
+}
+thead > tr > td{
+    font-size: 20px;
+}
+td{
+    height: 53px;
+    border: 1px #7c7c7c solid;
+}
+
+.tatalPay, .paymentOption{
+    width: 898px;
+    height: 53px;
+    border: black 1px solid;
+    margin-bottom: 50px;
+}
+
+.paymentOption{
+    border: 0;
+}
+.tatalPay > p {
+    font-size: 20px;
+    padding: 14px;
+}
+.payLabel{
+    float: left;
+    margin-left: 115px;
+}
+.totalPay{
+    float: right;
+    margin-right: 70px;
+}
+
+.paymentOption > div{
+    float: left;
+    padding: 14px;
+    font-size: 20px;
+    width: 298px;
+    text-align: center;
+    border: 1px black solid;
+}
+.cancle{
+    width: 298px;
+    height: 53px;
+    border: 1px black solid;
+    font-size: 20px;
+    line-height: 53px;
+    text-align: center;
+    float: left;
+}
+
+.cancleMent{
+    line-height: 53px;
+    padding-left: 320px;
+}
+
+.checkMes{
+    font-size: 20px;
+    text-align: center;
+    margin-left: 312px;
+}
+
+.payBtn{
+    width: 141px;
+    height: 53px;
+    background-color: #A47C6D;
+    font-size: 20px;
+    color: white;
+    border-radius: 3px;
+    margin-top: 40px;
+    margin-left: 390px;
+}

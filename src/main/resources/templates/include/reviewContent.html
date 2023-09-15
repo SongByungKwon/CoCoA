@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>review</title>
+  <link rel="stylesheet" href="/css/reviewContent.css">
+</head>
+<body id="rBody">
+<ul id="review" class="clearfix">
+    <li>
+        <p class="subReviewName">더 좋은 강의를 위해 노력하는<br>코코아의 생생한 수강생 후기 📄</p>
+        <div class="sRivewmain">
+            <th:block th:each="starList, stat : ${starList}" th:if="${stat.index < 3}">
+                <p th:text="${starList.S_FEMAIL}" class="emailText"></p><br>
+                <p th:text="${starList.S_REVIEW}" class="reviewText"></p>
+            </th:block>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

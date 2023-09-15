@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<link rel="stylesheet" href="/css/managerLogin.css">
+<head>
+    <meta charset="UTF-8">
+    <title>CoCoA 관리자페이지</title>
+    <link rel="icon" href="/img/favicon.png">
+</head>
+<body>
+<div id="wrap">
+    <form class="loginBox">
+        <img src="/img/logo.png" alt="로고이미지"><br>
+        <b class="managerLabel">관리자용</b><br>
+        <div class="Id_Pw">
+            <input class="managerId" id="managerId" type="text" placeholder="아이디">
+            <input class="managerPw" id="managerPw" type="password" placeholder="비밀번호">
+        </div>
+        <div id="managerLogin">
+            <input type="button" class="managerLoginBtn" onclick="managerLogin()" value="로그인">
+        </div>
+    </form>
+</div>
+<script>
+    function managerLogin(){
+        let MI = document.getElementById("managerId").value;
+        let MP = document.getElementById("managerPw").value;
+
+        if(MI == "cosongE" && MP == "cosongE2023"){
+            window.location.href="/managerHome"
+        }else {
+            alert("해당 페이지에 접속할 수 없습니다.");
+        }
+
+    };
+</script>
+</body>
+</html>

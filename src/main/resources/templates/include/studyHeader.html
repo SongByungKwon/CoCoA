@@ -1,0 +1,238 @@
+<link rel="stylesheet" href="/css/studyHeader.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="reading">
+        <a onclick='hello()'><img src="/img/headerImg/readingglasses.png" alt="돋보기"></a>
+    </div>  <!--reading 닫는 박스 -->
+    <div class="logo">
+        <a href="/"><img src="/img/logo.png" alt="logo"></a>
+    </div>
+
+    <div class="LoginBox">
+        <button class="LButton" id="modalOpenButton" type="button">로그인</button>
+
+        <!--로그인 모달창 시작-->
+
+        <div id="modalContainer" class="hidden">
+            <div id="modalContent">
+                <button id="modalCloseButton">X</button>
+
+                <div id="LoginImg"><img src="/img/logo.png" alt="모달창 로고"></div>
+
+                <form action="/loginFriend" method="POST">
+                    <div class="ID PW">
+                        <input class="IDT" name=fEmail type="text" placeholder="이메일">
+                        <input class="PWT" name=fPassword type="password" placeholder="비밀번호">
+                    </div>
+
+                    <div id="buttonLogin">
+                        <input type="submit" id="btnLogin" value="로그인">
+                    </div>
+                </form>
+
+                <div id="TextBox">
+                    <a onclick="openId()" style="cursor: pointer">아이디(이메일)찾기</a>
+                    <a class="l"></a>
+                    <a onclick="openPw()" style="cursor: pointer">비밀번호 찾기</a>
+                    <a class="l"></a>
+                    <a onclick="openSignUp()" style="cursor: pointer">회원가입</a>
+                </div>
+            </div>
+        </div>
+
+        <!--로그인 모달창 끝-->
+
+        <!-- 아이디 찾기 모달창 시작 DB 해야할거-->
+        <div id="modalContainerId" class="hidden"><!--모달창 로그인 찾기 시작-->
+            <div id="modalContentId">
+                <button id="modalCloseButtonId">X</button>
+
+                <div id="LoginImg2"><img src="/img/logo.png" alt="모달창 로고"></div>
+
+                <form action="/loginFriend" method="POST">
+                    <div class="ID PW">
+                        <input class="IDT" name=fName type="text" placeholder="이름">
+                        <input class="PWT" name=fPhone type="text" placeholder="전화번호">
+                    </div>
+
+                    <div id="buttonId">
+                        <input type="submit" id="btnId" value="아이디 찾기">
+                    </div>
+                </form>
+
+                <div id="TextBox1">
+                    <a onclick="openPw()" style="cursor: pointer">비밀번호 찾기</a>
+                    <a class="l"></a>
+                    <a onclick="openLogin()" style="cursor: pointer">로그인</a>
+                    <a class="l"></a>
+                    <a onclick="openSignUp()" style="cursor: pointer">회원가입</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- 아이디 찾기 모달창 DB-->
+
+        <!--비밀번호 찾기 모달창 DB해야할거-->
+
+
+        <div id="modalContainerPw" class="hidden"><!--모달창 로그인 찾기 시작-->
+            <div id="modalContentPw">
+                <button id="modalCloseButtonPw">X</button>
+
+                <div id="LoginImg3"><img src="/img/logo.png" alt="모달창 로고"></div>
+
+                <form action="/loginFriend" method="POST">
+                    <div class="ID PW">
+                        <input class="IDT" name=fName type="text" placeholder="이름">
+                        <input class="PWT" name=fEmail type="text" placeholder="이메일">
+                    </div>
+
+                    <div id="buttonPw">
+                        <input type="submit" id="btnPw" value="비밀번호 찾기">
+                    </div>
+                </form>
+
+                <div id="TextBox2">
+                    <a onclick="openId()" style="cursor: pointer">아이디 찾기</a>
+                    <a class="l"></a>
+                    <a onclick="openLogin()" style="cursor: pointer">로그인</a>
+                    <a class="l"></a>
+                    <a onclick="openSignUp()" style="cursor: pointer">회원가입</a>
+                </div>
+
+            </div>
+        </div>
+        <!--비밀번호 찾기 모달창 DB해야할거-->
+
+
+        <div class="space"></div><!-- 공간 뛰우기-->
+
+        <!--회원가입 모달창 시작-->
+        <button class="LButton" type="button" id="modalOpenButton1">회원가입</button>
+
+        <div id="modalContainer1" class="hidden"><!--모달창 회원가입 시작-->
+            <div id="modalContent1">
+                <button id="modalCloseButton1">X</button>
+                <div id="LoginImg1"><img src="/img/logo.png" alt="모달창 로고"></div>
+
+                <div class="ID">
+                    <input class="IDT" id="signUpFEmail" type="email" placeholder="이메일">
+                    <br><span id="vaildEmail"></span><br>
+
+                    <input class="PWT" id="signUpFPassword" type="password" placeholder="비밀번호">
+                    <br><span id="vaildPwd"></span><br>
+
+                    <input class="PWT" id="signUpFPasswordChk" type="password" placeholder="비밀번호 확인">
+                    <br><span id="vaildPwdCk"></span><br>
+
+                    <input class="PWT" id="signUpFName" type="text" placeholder="성함">
+                    <br><span id="vaildName"></span><br>
+
+                    <input class="PWT" id="signUpFPhone" type="text" placeholder="번호">
+                    <br><span id="vaildPhone"></span>
+                </div>
+
+                <div class="PW PWT">
+                    <input type="radio" name="signUpFJob" checked="checked" value="개발자"/> <span>개발자</span>
+                    <input type="radio" name="signUpFJob" value="학생"/> <span>학생</span>
+                </div>
+
+                <div id="signup" class="ID">
+                    <input type="button" onclick="signUpFriend()" value="회원가입(인증하기)" style="color: #fff">
+                </div>
+
+            </div>
+        </div>
+        <!--회원가입 모달창 끝-->
+
+    </div><!--LoginBox 닫는 박스 -->
+
+    <script src="/js/Modal.js"></script><!--모달창 불러오는 js-->
+
+    <script src="/js/login/friend.js"></script><!--모달창 불러오는 js-->
+</header><!--header-->
+
+
+<div id="header2" class="clearfix">
+    <div id="headerMoll">
+        <div id="box0">
+            <form id="TextS" method="post" name="search" action="/studyList" onsubmit="return searchKeyword();">
+                <input id="search" type="text" placeholder="검색어 입력" name="searchText" maxlength="100" >
+            </form>
+        </div><!--검색창-->
+        <ul id="headerLeft" class="clearfix">
+            <div id='box1' class="menuBox" onclick="location.href='CoCoA'">코코아(CoCoA)</div>
+            <ul id="subbox" class="submenu">
+                <div class="submenuBox" onclick="location.href='CoCoA'">코코아란?</div>
+                <div class="submenuBox" onclick="location.href='cibi';">CI/BI</div>
+                <div class="submenuBox" onclick="location.href='teacher';">강사소개</div>
+            </ul>
+
+            <div id='box2' class="menuBox" onclick="location.href='studyList';">강의 목록</div>
+            <div id='box3' class="menuBox" onclick="location.href='Coumteo'">코움터</div>
+            <div id='box4' class="menuBox" onclick="location.href='http://localhost:8080/csboard/openBoardList.do'">고객센터</div>
+        </ul>
+
+
+    </div><!-- 왼쪽 바깥쪽-->
+
+
+</div><!-- header2-->
+</body>
+<script src="/js/BoxHide.js"></script>
+<script src="/js/Modal.js"></script>
+<script src="/js/signUp.js"></script>
+<script src="/js/menubarSlide.js"></script>
+
+<script>
+
+    function searchKeyword() {
+        // 검색어 입력란의 값을 가져옵니다.
+        let searchText = document.getElementById("searchText").value;
+
+        // 검색어가 비어있는 경우 처리
+        if (searchText.trim() === "") {
+            swal ( "입력해주세요" ,  "아무 정보가 없습니다." ,  "error" )
+            return false;
+        }
+
+        // 검색어가 비어있지 않다면 원하는 동작을 수행합니다.
+        if (searchText === "자바" || searchText === "java" || searchText === "JAVA" || searchText === "Java") {
+            alert("자바 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "자바스크립트" || searchText === "javascript" || searchText === "JAVASCRIPT") {
+            alert("자바스크립트 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "C언어" || searchText === "C" || searchText === "c" || searchText === "c언어") {
+            alert("C언어 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "jsp" || searchText === "JSP") {
+            alert("JSP 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "HTML" || searchText === "html" || searchText === "css" || searchText === "CSS") {
+            alert("HTML/CSS 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "안드로이드" || searchText === "ANDROID" || searchText === "android") {
+            alert("안드로이드 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "jquery" || searchText === "JQUERY" || searchText === "제이쿼리") {
+            alert("JQUERY 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "SQL" || searchText === "sql") {
+            alert("SQL 강의를 검색합니다.");
+            return true;
+        } else if (searchText === "정보처리기사" || searchText === "기사") {
+            alert("정보처리기사 강의를 검색합니다.");
+            return true;
+        } else if (searchText.trim() !== "") {
+            alert("검색어를 입력하세요.");
+            return false;
+        }
+    }
+</script>
+

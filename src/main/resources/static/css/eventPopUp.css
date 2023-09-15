@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+#layer{
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    width: 400px;
+    height: 520px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #A47C6D;
+    padding: 20px;
+    font-size: 13px;
+    z-index: 5;
+}
+.layerText{
+    background-color: #A47C6D;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 7px;
+}
+
+.layerLogoImg{
+    display: block;
+    margin: 0 auto;
+}
+.layerTitle{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#layer > a{
+    background-color: #D8B8C5;
+    color: #59473F;
+    text-align: center;
+    display: block;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    line-height: 50px;
+    float: left;
+    margin-top: 20px;
+}
+.download{
+    margin-left: 70px;
+}
+.close{
+    margin-left: 20px;
+}
